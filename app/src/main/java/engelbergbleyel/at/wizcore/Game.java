@@ -78,9 +78,9 @@ public class Game {
         setAmountOfRounds();
     }
 
-    public void delPlayerFromGame(Player player) {
+    public void delPlayerFromGame(int playerPosition) {
         //del player
-        players.remove(player);
+        players.remove(playerPosition);
         amountOfPlayers--;
         setAmountOfRounds();
     }

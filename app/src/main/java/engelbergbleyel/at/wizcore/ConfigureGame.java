@@ -9,6 +9,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -44,15 +45,8 @@ public class ConfigureGame extends AppCompatActivity {
         Switch toggle = (Switch) findViewById(R.id.sw_bidNotRounds);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    game.setSumBidsMustDifferFromRound(true);
-                    Log.i("a","CHECKED"+game.getSumBids());
-                } else {
-                    // The toggle is disabled
-                    game.setSumBidsMustDifferFromRound(false);
-                    Log.i("a","UN CHECKED"+game.getSumBids());
-
-                }
+                if (isChecked)  game.setSumBidsMustDifferFromRound(true);
+                else            game.setSumBidsMustDifferFromRound(false);
             }
         });
 
@@ -67,8 +61,6 @@ public class ConfigureGame extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-
         game = Game.getInstance();
         if(game.isStartNewGame()){
             game.resetGame();
@@ -76,7 +68,26 @@ public class ConfigureGame extends AppCompatActivity {
             displayPlayersInList();
         }
 
+        final ListView listNewPlayers = (ListView) findViewById(R.id.listView_playerAdded);
+        listNewPlayers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Log.i("HelloListView", "You clicked Item: " + i + " at position:" + l);
+                playerArrayList.remove(i);
+                playerAdapter = new PlayerAdapter(getApplicationContext(), playerArrayList);
+                game.delPlayerFromGame(i);
+                displayPlayersInList();
+                Toast.makeText(getApplicationContext(), "Player deleted", Toast.LENGTH_SHORT).show();
+
+                if (playerArrayList.size() < 3) {
+                    Button button = (Button) findViewById(R.id.btn_startGame);
+                    button.setEnabled(false);
+                }
+            }
+        });
+
     }
+
 
     public void handleOnClickBtnAddPlayer(View view) {
         //adds Player with Name entered in InputField txt_enterName and raises amountPlayer by 1
@@ -104,12 +115,6 @@ public class ConfigureGame extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Please enter a Name", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void handleButtonDelPlayer(View view){
-        //deletes player - not working yet
-
-
     }
 
     public String getNameFromInputField() {

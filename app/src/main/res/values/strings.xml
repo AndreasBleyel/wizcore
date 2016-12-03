@@ -20,6 +20,8 @@
     <string name="title_activity_view_highscore">ViewHighscore</string>
     <string name="general_settings">Settings</string>
     <string name="configureGame_gameSetUp">set up the game</string>
+    <string name="configureGame_poolPlayers">saved Players\nclick to add</string>
+    <string name="configureGame_actualPlayers">Players in game\nclick to remove</string>
     <string name="configureGame_bidsNotRounds">Bids Sum must differ from Round</string>
     <string name="configureGame_hintName">Player Name</string>
     <string name="general_please">please</string>
