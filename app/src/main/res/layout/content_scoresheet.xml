@@ -301,13 +301,21 @@
             android:enabled="false" />
     </LinearLayout>
 
-    <Button
-        android:text="New Game"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_newGame"
-        android:textStyle="normal|bold"
-        android:visibility="invisible"
-        android:onClick="handleOnClickButtonNewGame" />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="@string/scoreSheet_newGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_newGame"
+            android:textStyle="normal|bold"
+            android:visibility="invisible"
+            android:onClick="handleOnClickButtonNewGame"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
 </LinearLayout>

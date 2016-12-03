@@ -30,9 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/btn_bidsDone"
-        android:id="@+id/table_bids"
-        android:layout_below="@+id/txt_BidOrScore">
+        android:id="@+id/table_bids">
 
         <!--<TableRow
             android:layout_width="match_parent"

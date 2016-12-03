@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
@@ -37,11 +41,41 @@ public class ConfigureGame extends AppCompatActivity {
             }
         });*/
 
-        game = Game.getInstance();
+        Switch toggle = (Switch) findViewById(R.id.sw_bidNotRounds);
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    game.setSumBidsMustDifferFromRound(true);
+                    Log.i("a","CHECKED"+game.getSumBids());
+                } else {
+                    // The toggle is disabled
+                    game.setSumBidsMustDifferFromRound(false);
+                    Log.i("a","UN CHECKED"+game.getSumBids());
 
+                }
+            }
+        });
+
+        game = Game.getInstance();
         if(game.isStartNewGame()){
             game.resetGame();
+        }else if (game.getAmountOfPlayers() != 0){
+            displayPlayersInList();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        game = Game.getInstance();
+        if(game.isStartNewGame()){
+            game.resetGame();
+        }else if (game.getAmountOfPlayers() != 0){
+            displayPlayersInList();
+        }
+
     }
 
     public void handleOnClickBtnAddPlayer(View view) {
@@ -70,8 +104,6 @@ public class ConfigureGame extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Please enter a Name", Toast.LENGTH_SHORT).show();
         }
-
-        //Log.i("MyTag", "PlayerArray: " + playerArrayList.toString());
     }
 
     public void handleButtonDelPlayer(View view){
@@ -128,7 +160,6 @@ public class ConfigureGame extends AppCompatActivity {
 
     public void handleOnClickBtnStartGame(View view) {
         for(Player player : game.getPlayers()) player.initArrays(game.getAmountOfRounds());
-
         startActivity(new Intent(this, Scoresheet.class));
     }
 

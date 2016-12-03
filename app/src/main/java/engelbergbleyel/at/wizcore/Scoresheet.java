@@ -25,14 +25,14 @@ public class Scoresheet extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         game = Game.getInstance();
 
@@ -46,15 +46,19 @@ public class Scoresheet extends AppCompatActivity {
 
         Log.i("a", "START ON RESUME");
         game = Game.getInstance();
-        for (Player player : game.getPlayers()) {
+        /*for (Player player : game.getPlayers()) {
             Log.i("a", "Player: " + player.toString());
-        }
+        }*/
         createTable();
     }
 
     public void handleOnClickButtonTricks(View view) {
         Intent intent = new Intent(this, Bids.class);
         intent.putExtra("BidOrScore", false);
+
+        Button button = (Button) findViewById(R.id.btn_Tricks);
+        button.setEnabled(false);
+
         startActivity(intent);
     }
 
@@ -105,7 +109,6 @@ public class Scoresheet extends AppCompatActivity {
             Button bidsButton = (Button) findViewById(R.id.btn_Bids);
             Button tricksButton = (Button) findViewById(R.id.btn_Tricks);
             Button newGame = (Button) findViewById(R.id.btn_newGame);
-
             newGame.setVisibility(View.VISIBLE);
             bidsButton.setEnabled(false);
             tricksButton.setEnabled(false);

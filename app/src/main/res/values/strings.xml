@@ -30,5 +30,8 @@
     <string name="scoreSheet_second">Second</string>
     <string name="scoreSheet_third">Third</string>
     <string name="title_activity_configure_game">Configure Game</string>
+    <string name="scoreSheet_newGame">New Game</string>
+    <string name="scoreSheet_restart">Restart with</string>
+    <string name="scoreSheet_diffPlayer">new Players</string>
 
 </resources>

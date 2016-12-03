@@ -32,11 +32,16 @@ public class Game {
     private Game() {
         this.round = 1;
         players = new ArrayList<>();
-        amountOfPlayers = 0 ;
+        amountOfPlayers = 0;
         startNewGame = false;
+        sumBidsMustDifferFromRound = true;
     }
 
     //getter
+    public boolean getSumBids(){
+        return sumBidsMustDifferFromRound;
+    }
+
     public int getRound() {
         return round;
     }
@@ -45,13 +50,17 @@ public class Game {
         return amountOfPlayers;
     }
 
-    public int getAmountOfRounds() { return amountOfRounds; }
+    public int getAmountOfRounds() {
+        return amountOfRounds;
+    }
 
     public ArrayList<Player> getPlayers() {
         return players;
     }
 
-    public boolean isStartNewGame() { return startNewGame; }
+    public boolean isStartNewGame() {
+        return startNewGame;
+    }
 
     //setter
     public void setSumBidsMustDifferFromRound(boolean sumBidsMustDifferFromRound) {
@@ -129,20 +138,20 @@ public class Game {
         }
     }
 
-    private void calcPositions(){
+    private void calcPositions() {
         Collections.sort(players);
         Collections.reverse(players);
     }
 
-    public void endGame(){
+    public void endGame() {
         calcPositions();
         startNewGame = true;
     }
 
-    public void resetGame(){
+    public void resetGame() {
         this.round = 1;
         players = new ArrayList<>();
-        amountOfPlayers = 0 ;
+        amountOfPlayers = 0;
         startNewGame = false;
     }
 }

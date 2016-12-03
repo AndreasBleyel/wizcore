@@ -36,14 +36,14 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+     /*   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         game = Game.getInstance();
         bidOrScore = getIntent().getBooleanExtra("BidOrScore", false);
@@ -55,6 +55,8 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
 
         tableLayout = (TableLayout) findViewById(R.id.table_bids);
         int id = 0;
+
+        tableLayout.removeAllViews();
 
         TextView textView = (TextView) findViewById(R.id.txt_BidOrScore);
         if (bidOrScore)
@@ -271,7 +273,13 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void handleOnClickDone(View view) {
-        this.finish();
+        if (game.isSumBidsMustDifferFromRound()) {
+            if (game.getRound() == game.amountOfBidsForRound(game.getRound())) {
+                Toast.makeText(getApplicationContext(), "Sum of Bids must differ from Round", Toast.LENGTH_SHORT).show();
+            } else
+                this.finish();
+        } else
+            this.finish();
     }
 
     public void handleOnClickCalcScore(View view) {
