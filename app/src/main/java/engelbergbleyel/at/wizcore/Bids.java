@@ -73,6 +73,11 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
             TextView textViewName = new TextView(this);
             textViewName.setText(game.getPlayers().get(i).getName());
             textView.setTextSize(18);
+
+            /*LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            llp.setMargins(0, 0, 50, 0); // llp.setMargins(left, top, right, bottom);
+            textViewName.setLayoutParams(llp);*/
+
             tableRow.addView(textViewName);
 
             btnMinus = new Button(this);
@@ -104,12 +109,9 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
             tableLayout.addView(tableRow);
         }
 
-        TextView possibleBids = new TextView(this);
+        TextView possibleBids = (TextView) findViewById(R.id.tv_sumBidsTricks);
         possibleBids.setId(18);
-        possibleBids.setTextSize(20);
 
-        TableRow tableRow = new TableRow(this);
-        tableRow.setGravity(Gravity.CENTER);
 
         if (bidOrScore) {
             possibleBids.setText(getResources().getString(R.string.bids_activity_sumof) + " " + getResources().getString(R.string.general_bids) + ": " + game.amountOfBidsForRound(game.getRound()) + "/" + game.getRound());
@@ -126,8 +128,6 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
             });
         }
 
-        tableRow.addView(possibleBids);
-        tableLayout.addView(tableRow);
     }
 
     @Override
