@@ -35,5 +35,11 @@
     <string name="scoreSheet_newGame">New Game</string>
     <string name="scoreSheet_restart">Restart with</string>
     <string name="scoreSheet_diffPlayer">new Players</string>
+    <string name="title_activity_display_player">DisplayPlayer</string>
+    <string name="general_add">Add</string>
+
+    <string name="name">Name:</string>
+    <string name="highscore">highest Score:</string>
+    <string name="alltimescore">All-Time Score:</string>
 
 </resources>

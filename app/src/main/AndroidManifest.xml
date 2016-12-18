@@ -23,6 +23,7 @@
             android:label="@string/title_activity_bids"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:parentActivityName=".ConfigureGame"
             android:name=".Scoresheet"
             android:label="@string/title_activity_scoresheet"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -37,7 +38,11 @@
         <activity
             android:name=".ConfigureGame"
             android:label="@string/title_activity_configure_game"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DisplayPlayer"
+            android:label="@string/title_activity_display_player"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

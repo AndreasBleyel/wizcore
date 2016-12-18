@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -24,7 +25,9 @@ public class ConfigureGame extends AppCompatActivity {
 
     public ArrayList<Player> playerArrayList = new ArrayList<Player>();
     Game game;
-    PlayerAdapter playerAdapter;
+    PlayerAdapter playerAdapter; //notwendig???
+    private ListView playerPool;
+    DBHelper mydb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,6 +164,13 @@ public class ConfigureGame extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.listView_playerAdded);
         listView.setAdapter(playerAdapter);
         playerAdapter.notifyDataSetChanged();
+
+        mydb = new DBHelper(this);
+        ArrayList array_list = mydb.getAllContacts();
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, array_list);
+        playerPool = (ListView) findViewById(R.id.listView_playerPool);
+        playerPool.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
     }
 
     public void handleOnClickBtnStartGame(View view) {
