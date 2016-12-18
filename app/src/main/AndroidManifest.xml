@@ -21,27 +21,32 @@
         <activity
             android:name=".Bids"
             android:label="@string/title_activity_bids"
+            android:parentActivityName=".Scoresheet"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:parentActivityName=".ConfigureGame"
             android:name=".Scoresheet"
             android:label="@string/title_activity_scoresheet"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EditPlayers"
             android:label="@string/title_activity_edit_players"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewHighscore"
             android:label="@string/title_activity_view_highscore"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ConfigureGame"
             android:label="@string/title_activity_configure_game"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DisplayPlayer"
             android:label="@string/title_activity_display_player"
+            android:parentActivityName=".EditPlayers"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
