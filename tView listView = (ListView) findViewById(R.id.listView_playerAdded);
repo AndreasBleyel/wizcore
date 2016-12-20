@@ -1,0 +1,41 @@
+[33mcommit ca3b32d94e184e397f8aa2665bb1fea5b190cad0[m
+Author: andy-b23 <andy-b23@gmx.at>
+Date:   Sun Dec 18 21:16:32 2016 +0100
+
+    back from bids works
+
+[33mcommit d729ac543d87616882e5ac132bb9c84516a7994b[m
+Author: andy-b23 <andy-b23@gmx.at>
+Date:   Sun Dec 18 21:08:29 2016 +0100
+
+    back from scoresheet works
+
+[33mcommit 560584294a33b5ef441b571f607d49d367cc0e5d[m
+Author: andy-b23 <andy-b23@gmx.at>
+Date:   Sun Dec 18 20:43:19 2016 +0100
+
+    bids screen passt
+
+[33mcommit b6c042810256d13175fd41f7b034039893ed695d[m
+Author: andy-b23 <andy-b23@gmx.at>
+Date:   Sun Dec 18 20:32:18 2016 +0100
+
+    db ready
+
+[33mcommit 80d76d57a4b46722eec692bcf8b057a1752a9829[m
+Author: andy-b23 <andy-b23@gmx.at>
+Date:   Sat Dec 3 14:03:55 2016 +0100
+
+    temp player list remove works
+
+[33mcommit b473fe27e9dde7211e77a5442be749134ce9b176[m
+Author: andy-b23 <andy-b23@gmx.at>
+Date:   Sat Dec 3 13:27:50 2016 +0100
+
+    vor listview clickable
+
+[33mcommit e875289a17dbe4fdbada49d2c00999dc2917c105[m
+Author: andy-b23 <andy-b23@gmx.at>
+Date:   Sat Dec 3 12:19:06 2016 +0100
+
+    init commit
