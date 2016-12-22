@@ -59,6 +59,7 @@ public class ConfigureGame extends AppCompatActivity {
         }else if (game.getAmountOfPlayers() != 0){
             displayPlayersInList();
         }
+        Log.i("a","ON CREATE");
     }
 
     @Override
@@ -88,6 +89,8 @@ public class ConfigureGame extends AppCompatActivity {
                 }
             }
         });
+
+        Log.i("a","ON RESUME");
 
     }
 
