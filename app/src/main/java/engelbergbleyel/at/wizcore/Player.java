@@ -17,10 +17,12 @@ public class Player implements Comparable<Player>{
     private int position;
     private int[] bids;
     private int[] tricks;
+    private boolean isDbPlayer;
 
-    public Player(String name) {
+    public Player(String name, boolean isDbPlayer) {
         this.name = name;
         this.score = 0;
+        this.isDbPlayer = isDbPlayer;
     }
 
     //getter

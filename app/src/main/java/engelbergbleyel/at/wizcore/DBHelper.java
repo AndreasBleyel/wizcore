@@ -88,7 +88,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME, null);
+        Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME+ " order by "+PLAYERS_COLUMN_ID+" asc", null);
         res.moveToFirst();
 
         while (res.isAfterLast() == false) {
@@ -104,7 +104,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME, null);
+        Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME+ " order by "+PLAYERS_COLUMN_ID+" asc", null);
         res.moveToFirst();
 
         while (res.isAfterLast() == false) {

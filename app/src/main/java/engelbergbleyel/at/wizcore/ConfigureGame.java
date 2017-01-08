@@ -20,6 +20,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ConfigureGame extends AppCompatActivity {
 
@@ -27,6 +28,8 @@ public class ConfigureGame extends AppCompatActivity {
     ArrayAdapter tempPlayersAdapter;
     ArrayList<String> tempPlayers;
 
+    ArrayList<String> dbPlayersNames;
+    ArrayList<Integer> dbPlayersIds;
     private ListView dbPlayersListView;
     DBHelper mydb;
 
@@ -52,15 +55,15 @@ public class ConfigureGame extends AppCompatActivity {
         Switch toggle = (Switch) findViewById(R.id.sw_bidNotRounds);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)  game.setSumBidsMustDifferFromRound(true);
-                else            game.setSumBidsMustDifferFromRound(false);
+                if (isChecked) game.setSumBidsMustDifferFromRound(true);
+                else game.setSumBidsMustDifferFromRound(false);
             }
         });
 
 
-        if(game.isStartNewGame()){
+        if (game.isStartNewGame()) {
             game.resetGame();
-        }else if (game.getAmountOfPlayers() != 0){
+        } else if (game.getAmountOfPlayers() != 0) {
             displayTempPlayersInList();
         }
 
@@ -93,8 +96,30 @@ public class ConfigureGame extends AppCompatActivity {
         listPlayersDb.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i("HelloListView", "You clicked Item: " + i + " at position:" + l);
+                //Log.i("HelloListView", "You clicked Item: " + i + " at position:" + l);
 
+                if (! tempPlayers.contains(dbPlayersNames.get(i))) {
+                    Player player = new Player(dbPlayersNames.get(i), true);
+
+                    tempPlayers.add(player.getName());
+                    game.addPlayerToGame(player);
+
+                    displayTempPlayersInList();
+
+                    setInputFieldBack();
+                    if (tempPlayers.size() > 2) {
+                        Button button = (Button) findViewById(R.id.btn_startGame);
+                        button.setEnabled(true);
+                    }
+                    if (tempPlayers.size() == 6) {
+                        setAddPlayerButtonToFull();
+                        setInputFieldBack();
+                        disableInputField();
+                        Toast.makeText(getApplicationContext(), "Maximum amount of Players reached", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Player already in game", Toast.LENGTH_SHORT).show();
+                }
 
 
             }
@@ -102,34 +127,40 @@ public class ConfigureGame extends AppCompatActivity {
 
         mydb = new DBHelper(this);
 
-        if(mydb.numberOfRows() != 0){
+        if (mydb.numberOfRows() != 0) {
             displayDbPlayerinList();
         }
 
-        Log.i("a","ON CREATE");
+        Log.i("a", "ON CREATE");
     }
 
     public void handleOnClickBtnAddPlayer(View view) {
         //adds Player with Name entered in InputField txt_enterName and raises amountPlayer by 1
 
         if (checkInputFieldHasValue()) {
-            Player player = new Player(getNameFromInputField());
+            if (! tempPlayers.contains(getNameFromInputField())) {
 
-            tempPlayers.add(player.getName());
-            game.addPlayerToGame(player);
+                Player player = new Player(getNameFromInputField(), false);
 
-            displayTempPlayersInList();
+                tempPlayers.add(player.getName());
+                game.addPlayerToGame(player);
 
-            setInputFieldBack();
-            if (tempPlayers.size() > 2) {
-                Button button = (Button) findViewById(R.id.btn_startGame);
-                button.setEnabled(true);
-            }
-            if (tempPlayers.size() == 6) {
-                setAddPlayerButtonToFull();
+                displayTempPlayersInList();
+
                 setInputFieldBack();
-                disableInputField();
-                Toast.makeText(this, "Maximum amount of Players reached", Toast.LENGTH_SHORT).show();
+                if (tempPlayers.size() > 2) {
+                    Button button = (Button) findViewById(R.id.btn_startGame);
+                    button.setEnabled(true);
+                }
+                if (tempPlayers.size() == 6) {
+                    setAddPlayerButtonToFull();
+                    setInputFieldBack();
+                    disableInputField();
+                    Toast.makeText(this, "Maximum amount of Players reached", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), "Player already in game", Toast.LENGTH_SHORT).show();
+
             }
         } else {
             Toast.makeText(this, "Please enter a Name", Toast.LENGTH_SHORT).show();
@@ -144,13 +175,18 @@ public class ConfigureGame extends AppCompatActivity {
         tempPlayersAdapter.notifyDataSetChanged();
     }
 
-    public void displayDbPlayerinList(){
-        mydb = new DBHelper(this);
-        ArrayList array_list = mydb.getAllContacts();
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, array_list);
+    public void displayDbPlayerinList() {
+        //mydb = new DBHelper(this);
+        dbPlayersNames = mydb.getAllContacts();
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, dbPlayersNames);
+
         dbPlayersListView = (ListView) findViewById(R.id.listView_playerPool);
         dbPlayersListView.setAdapter(arrayAdapter);
         arrayAdapter.notifyDataSetChanged();
+
+        dbPlayersIds = mydb.getAllIds();
+        for (Integer x : dbPlayersIds)
+            Log.i("a", "IDS: " + x + ", ");
     }
 
     public String getNameFromInputField() {
@@ -166,13 +202,13 @@ public class ConfigureGame extends AppCompatActivity {
         button.setEnabled(false);
     }
 
-    public void enableAddPlayerButton(){
+    public void enableAddPlayerButton() {
         Button button = (Button) findViewById(R.id.btn_addNewPlayer);
         button.setText("Add Player");
         button.setEnabled(true);
     }
 
-    public void enableInputField(){
+    public void enableInputField() {
         EditText editText = (EditText) findViewById(R.id.txt_enterName);
         editText.setHint("Player Name");
         editText.setEnabled(true);
@@ -204,9 +240,8 @@ public class ConfigureGame extends AppCompatActivity {
     }
 
 
-
     public void handleOnClickBtnStartGame(View view) {
-        for(Player player : game.getPlayers()) player.initArrays(game.getAmountOfRounds());
+        for (Player player : game.getPlayers()) player.initArrays(game.getAmountOfRounds());
         startActivity(new Intent(this, Scoresheet.class));
     }
 
