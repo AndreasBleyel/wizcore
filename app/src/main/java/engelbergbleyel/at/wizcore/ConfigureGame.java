@@ -23,10 +23,11 @@ import java.util.ArrayList;
 
 public class ConfigureGame extends AppCompatActivity {
 
-    public ArrayList<Player> playerArrayList = new ArrayList<Player>();
     Game game;
-    PlayerAdapter playerAdapter; //notwendig???
-    private ListView playerPool;
+    ArrayAdapter tempPlayersAdapter;
+    ArrayList<String> tempPlayers;
+
+    private ListView dbPlayersListView;
     DBHelper mydb;
 
     @Override
@@ -46,6 +47,7 @@ public class ConfigureGame extends AppCompatActivity {
         });*/
 
         game = Game.getInstance();
+        tempPlayers = new ArrayList<>();
 
         Switch toggle = (Switch) findViewById(R.id.sw_bidNotRounds);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -62,23 +64,39 @@ public class ConfigureGame extends AppCompatActivity {
             displayTempPlayersInList();
         }
 
+
         final ListView listNewPlayers = (ListView) findViewById(R.id.listView_playerAdded);
         listNewPlayers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //Log.i("HelloListView", "You clicked Item: " + i + " at position:" + l);
-                playerArrayList.remove(i);
-                playerAdapter = new PlayerAdapter(getApplicationContext(), playerArrayList);
+
+                tempPlayers.remove(i);
                 game.delPlayerFromGame(i);
+
                 displayTempPlayersInList();
+
                 Toast.makeText(getApplicationContext(), "Player deleted", Toast.LENGTH_SHORT).show();
+
                 setInputFieldBack();
                 enableAddPlayerButton();
                 enableInputField();
-                if (playerArrayList.size() < 3) {
+                if (tempPlayers.size() < 3) {
                     Button button = (Button) findViewById(R.id.btn_startGame);
                     button.setEnabled(false);
                 }
+            }
+        });
+
+
+        final ListView listPlayersDb = (ListView) findViewById(R.id.listView_playerPool);
+        listPlayersDb.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.i("HelloListView", "You clicked Item: " + i + " at position:" + l);
+
+
+
             }
         });
 
@@ -91,57 +109,23 @@ public class ConfigureGame extends AppCompatActivity {
         Log.i("a","ON CREATE");
     }
 
-    /*@Override
-    protected void onResume() {
-        super.onResume();
-        game = Game.getInstance();
-        if(game.isStartNewGame()){
-            game.resetGame();
-        }else if (game.getAmountOfPlayers() != 0){
-            displayPlayersInList();
-        }
-
-        final ListView listNewPlayers = (ListView) findViewById(R.id.listView_playerAdded);
-        listNewPlayers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //Log.i("HelloListView", "You clicked Item: " + i + " at position:" + l);
-                playerArrayList.remove(i);
-                playerAdapter = new PlayerAdapter(getApplicationContext(), playerArrayList);
-                game.delPlayerFromGame(i);
-                displayPlayersInList();
-                Toast.makeText(getApplicationContext(), "Player deleted", Toast.LENGTH_SHORT).show();
-
-                if (playerArrayList.size() < 3) {
-                    Button button = (Button) findViewById(R.id.btn_startGame);
-                    button.setEnabled(false);
-                }
-            }
-        });
-
-        Log.i("a","ON RESUME");
-
-    }*/
-
-
     public void handleOnClickBtnAddPlayer(View view) {
         //adds Player with Name entered in InputField txt_enterName and raises amountPlayer by 1
 
         if (checkInputFieldHasValue()) {
-            playerAdapter = new PlayerAdapter(this, playerArrayList);
             Player player = new Player(getNameFromInputField());
-            playerAdapter.add(player);
+
+            tempPlayers.add(player.getName());
             game.addPlayerToGame(player);
 
-            //Log.i("a","PlayeR: "+player.toString()+"bids "+player.getBidAt(1) );
-
             displayTempPlayersInList();
+
             setInputFieldBack();
-            if (playerArrayList.size() > 2) {
+            if (tempPlayers.size() > 2) {
                 Button button = (Button) findViewById(R.id.btn_startGame);
                 button.setEnabled(true);
             }
-            if (playerArrayList.size() == 6) {
+            if (tempPlayers.size() == 6) {
                 setAddPlayerButtonToFull();
                 setInputFieldBack();
                 disableInputField();
@@ -150,6 +134,23 @@ public class ConfigureGame extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Please enter a Name", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void displayTempPlayersInList() {
+        //display the Names in the ListView listPlayers
+        ListView listView = (ListView) findViewById(R.id.listView_playerAdded);
+        tempPlayersAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tempPlayers);
+        listView.setAdapter(tempPlayersAdapter);
+        tempPlayersAdapter.notifyDataSetChanged();
+    }
+
+    public void displayDbPlayerinList(){
+        mydb = new DBHelper(this);
+        ArrayList array_list = mydb.getAllContacts();
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, array_list);
+        dbPlayersListView = (ListView) findViewById(R.id.listView_playerPool);
+        dbPlayersListView.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
     }
 
     public String getNameFromInputField() {
@@ -202,24 +203,7 @@ public class ConfigureGame extends AppCompatActivity {
         editText.setHint("Enter Player Name");
     }
 
-    public void displayTempPlayersInList() {
-        //display the Names in the ListView listPlayers
 
-        ListView listView = (ListView) findViewById(R.id.listView_playerAdded);
-        listView.setAdapter(playerAdapter);
-        playerAdapter.notifyDataSetChanged();
-
-
-    }
-
-    public void displayDbPlayerinList(){
-        mydb = new DBHelper(this);
-        ArrayList array_list = mydb.getAllContacts();
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, array_list);
-        playerPool = (ListView) findViewById(R.id.listView_playerPool);
-        playerPool.setAdapter(arrayAdapter);
-        arrayAdapter.notifyDataSetChanged();
-    }
 
     public void handleOnClickBtnStartGame(View view) {
         for(Player player : game.getPlayers()) player.initArrays(game.getAmountOfRounds());
