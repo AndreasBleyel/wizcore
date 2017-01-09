@@ -47,36 +47,6 @@ public class EditPlayers extends AppCompatActivity{
         });*/
 
 
-        /*obj.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                // TODO Auto-generated method stub
-                int id_To_Search = array_ids.get(arg2);
-                //Log.i("a","ITEM LV: "+arg0.getId()+" "+arg1.getId()+" "+arg2+" "+arg3);
-                //Log.i("a","id: " +id_To_Search);
-
-                Bundle dataBundle = new Bundle();
-                dataBundle.putInt("id", id_To_Search);
-
-                Intent intent = new Intent(getApplicationContext(), DisplayPlayer.class);
-
-                intent.putExtras(dataBundle);
-                startActivity(intent);
-            }
-        });
-
-        addPlayerDB = (Button) findViewById(R.id.btn_addPlayerDB);
-        addPlayerDB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), DisplayPlayer.class);
-                Bundle dataBundle = new Bundle();
-                dataBundle.putInt("id", 0);
-                intent.putExtras(dataBundle);
-                startActivity(intent);
-            }
-        });*/
-
         Button button = (Button)findViewById(R.id.btn_addPlayerDB);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
