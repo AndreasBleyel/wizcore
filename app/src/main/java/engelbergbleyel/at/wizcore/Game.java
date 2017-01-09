@@ -1,13 +1,10 @@
 package engelbergbleyel.at.wizcore;
 
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Created by andi on 30.11.16.
