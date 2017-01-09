@@ -53,17 +53,17 @@ public class DisplayPlayer extends AppCompatActivity implements View.OnClickList
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            int Value = extras.getInt("id");
+            int value = extras.getInt("id");
 
-            if (Value > 0) {
+            if (value > 0) {
                 //means this is the view part not the add contact part.
-                Cursor rs = mydb.getData(Value);
-                id_To_Update = Value;
+                Cursor rs = mydb.getData(value);
+                id_To_Update = value;
                 rs.moveToFirst();
 
                 String nam = rs.getString(rs.getColumnIndex(DBHelper.PLAYERS_COLUMN_NAME));
                 String high = rs.getString(rs.getColumnIndex(DBHelper.PLAYERS_COLUMN_HIGHSCORE));
-                Log.i("a", "high: " + high + " id: " + id_To_Update);
+                //Log.i("a", "high: " + high + " id: " + id_To_Update);
                 String alltime = rs.getString(rs.getColumnIndex(DBHelper.PLAYERS_COLUMN_ALLTIMESCORE));
 
                 if (!rs.isClosed()) {
@@ -72,15 +72,15 @@ public class DisplayPlayer extends AppCompatActivity implements View.OnClickList
 
                 addPlayer.setEnabled(false);
 
-                name.setText(nam);
+                name.setText(" "+nam);
                 name.setFocusable(false);
                 name.setClickable(false);
 
-                highscore.setText(high);
+                highscore.setText(" "+high);
                 highscore.setFocusable(false);
                 highscore.setClickable(false);
 
-                alltimescore.setText(alltime);
+                alltimescore.setText(" "+alltime);
                 alltimescore.setFocusable(false);
                 alltimescore.setClickable(false);
 
@@ -92,8 +92,10 @@ public class DisplayPlayer extends AppCompatActivity implements View.OnClickList
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
-            int Value = extras.getInt("id");
-            if (Value > 0) {
+            int value = extras.getInt("id");
+            Log.i("a","Value: "+value);
+
+            if (value > 0) {
                 if (mydb.updateContact(id_To_Update, name.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), EditPlayers.class);

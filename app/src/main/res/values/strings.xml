@@ -37,9 +37,14 @@
     <string name="scoreSheet_diffPlayer">new Players</string>
     <string name="title_activity_display_player">DisplayPlayer</string>
     <string name="general_add">Add</string>
+    <string name="main">Main Menu</string>
+    <string name="highscore">Highscores</string>
 
     <string name="name">Name:</string>
-    <string name="highscore">highest Score:</string>
+    <string name="highestScore">highest Score:</string>
     <string name="alltimescore">All-Time Score:</string>
+    <string name="pos">Pos</string>
+    <string name="score">Score</string>
+    <string name="nameScore">Name</string>
 
 </resources>

@@ -58,12 +58,12 @@ public class Scoresheet extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Quit Game")
+                .setTitle("Abort Game")
                 .setMessage("and go back to MainScreen?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
-                        game.endGame();
+                        game.endGame(true,getApplicationContext());
                         NavUtils.navigateUpTo(Scoresheet.this,getParentActivityIntent());
                     }
                 })
@@ -100,6 +100,10 @@ public class Scoresheet extends AppCompatActivity {
         startActivity(new Intent(this, ConfigureGame.class));
     }
 
+    public void handleOnClickButtonMain(View view){
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
     public void createTable() {
 
         TextView roundNumber = (TextView) findViewById(R.id.tv_Round);
@@ -134,26 +138,28 @@ public class Scoresheet extends AppCompatActivity {
             Button tricksButton = (Button) findViewById(R.id.btn_Tricks);
             Button newGame = (Button) findViewById(R.id.btn_newGame);
             newGame.setVisibility(View.VISIBLE);
+            Button main = (Button)findViewById(R.id.btn_backMain);
+            main.setVisibility(View.VISIBLE);
             bidsButton.setEnabled(false);
             tricksButton.setEnabled(false);
 
-            game.endGame();
+            game.endGame(false,this);
 
             bids.setText(getResources().getString(R.string.scoreSheet_gameOver));
             roundNumber.setText("Round: " + Integer.toString(game.getRound()-1) + "/" + game.getAmountOfRounds());
 
             play1name.setText(game.getPlayers().get(0).getName());
-            play1name.setTextColor(Color.GREEN);
+            play1name.setTextColor(Color.rgb(255,215,0));
             play1point.setText(getResources().getString(R.string.scoreSheet_first) + ": " + game.getPlayers().get(0).getScore());
             play1bid.setVisibility(View.INVISIBLE);
 
             play2name.setText(game.getPlayers().get(1).getName());
-            play2name.setTextColor(Color.LTGRAY);
+            play2name.setTextColor(Color.rgb(192,192,192));
             play2point.setText(getResources().getString(R.string.scoreSheet_second) + ": " + game.getPlayers().get(1).getScore());
             play2bid.setVisibility(View.INVISIBLE);
 
             play3name.setText(game.getPlayers().get(2).getName());
-            play3name.setTextColor(Color.YELLOW);
+            play3name.setTextColor(Color.rgb(205, 127, 50));
             play3point.setText(getResources().getString(R.string.scoreSheet_third) + ": " + game.getPlayers().get(2).getScore());
             play3bid.setVisibility(View.INVISIBLE);
 

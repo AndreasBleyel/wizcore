@@ -1,5 +1,6 @@
 package engelbergbleyel.at.wizcore;
 
+import android.content.Context;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
@@ -61,6 +62,7 @@ public class Game {
     public boolean isStartNewGame() {
         return startNewGame;
     }
+
 
     //setter
     public void setSumBidsMustDifferFromRound(boolean sumBidsMustDifferFromRound) {
@@ -143,8 +145,16 @@ public class Game {
         Collections.reverse(players);
     }
 
-    public void endGame() {
-        calcPositions();
+    public void endGame(boolean aborted, Context context) {
+        if(!aborted){
+            calcPositions();
+            for(Player temp : players){
+                if(temp.isDbPlayer()){
+                    DBHelper mydb = new DBHelper(context);
+                    mydb.updateAllTimeScore(temp.getId(),temp.getScore());
+                }
+            }
+        }
         startNewGame = true;
     }
 

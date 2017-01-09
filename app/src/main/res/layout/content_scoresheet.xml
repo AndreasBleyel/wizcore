@@ -307,6 +307,15 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_backMain"
+            android:layout_weight="1"
+            android:text="@string/main"
+            android:visibility="invisible"
+            android:onClick="handleOnClickButtonMain" />
+
+        <Button
             android:text="@string/scoreSheet_newGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

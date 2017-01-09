@@ -55,11 +55,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor getData(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME+" where "+PLAYERS_COLUMN_ID+"=" + id, null);
-        return res;
-    }
 
     public int numberOfRows() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -76,11 +71,49 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean updateAllTimeScore(Integer id, int score) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        Integer allTimeScore = getAllTimeScore(id) + score;
+        contentValues.put(PLAYERS_COLUMN_ALLTIMESCORE, allTimeScore);
+
+        db.update(PLAYERS_TABLE_NAME, contentValues, "id = ? ", new String[]{Integer.toString(id)});
+        return true;
+    }
+
     public Integer deleteContact(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(PLAYERS_TABLE_NAME,
                 "id = ? ",
                 new String[]{Integer.toString(id)});
+    }
+
+    public Cursor getData(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME+" where "+PLAYERS_COLUMN_ID+"=" + id, null);
+        return res;
+    }
+
+    public Integer getAllTimeScore(Integer id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME+ " where "+PLAYERS_COLUMN_ID+" = " +id, null);
+        res.moveToFirst();
+
+        return Integer.parseInt(res.getString(res.getColumnIndex(PLAYERS_COLUMN_ALLTIMESCORE)));
+
+    }
+
+    public Cursor getHighscore(Integer id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res;
+
+        if(id == -1){
+            res = db.rawQuery("select "+PLAYERS_COLUMN_NAME+" , "+PLAYERS_COLUMN_HIGHSCORE+" from "+PLAYERS_TABLE_NAME+ " order by "+PLAYERS_COLUMN_HIGHSCORE+" asc", null);
+        }else{
+            res = db.rawQuery("select "+PLAYERS_COLUMN_NAME+" , "+PLAYERS_COLUMN_HIGHSCORE+" from "+PLAYERS_TABLE_NAME+" where "+PLAYERS_COLUMN_ID+" = " + id, null);
+        }
+
+        return res;
     }
 
     public ArrayList<String> getAllContacts() {

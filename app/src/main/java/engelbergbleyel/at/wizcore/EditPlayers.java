@@ -47,12 +47,12 @@ public class EditPlayers extends AppCompatActivity {
 
         final ArrayList<Integer> array_ids = mydb.getAllIds();
 
-        for (Object temp:array_list){
+        /*for (Object temp:array_list){
            Log.i("a","arraylist: "+temp.toString());
         }
         for (Object temp:array_ids){
            Log.i("a","arrayids: "+temp.toString());
-        }
+        }*/
 
         obj = (ListView) findViewById(R.id.lv_players);
         obj.setAdapter(arrayAdapter);
@@ -61,8 +61,8 @@ public class EditPlayers extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 // TODO Auto-generated method stub
                 int id_To_Search = array_ids.get(arg2);
-                Log.i("a","ITEM LV: "+arg0.getId()+" "+arg1.getId()+" "+arg2+" "+arg3);
-                Log.i("a","id: " +id_To_Search);
+                //Log.i("a","ITEM LV: "+arg0.getId()+" "+arg1.getId()+" "+arg2+" "+arg3);
+                //Log.i("a","id: " +id_To_Search);
 
                 Bundle dataBundle = new Bundle();
                 dataBundle.putInt("id", id_To_Search);

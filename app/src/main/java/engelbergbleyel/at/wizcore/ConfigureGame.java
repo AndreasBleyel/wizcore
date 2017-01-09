@@ -1,9 +1,12 @@
 package engelbergbleyel.at.wizcore;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
@@ -99,7 +102,7 @@ public class ConfigureGame extends AppCompatActivity {
                 //Log.i("HelloListView", "You clicked Item: " + i + " at position:" + l);
 
                 if (! tempPlayers.contains(dbPlayersNames.get(i))) {
-                    Player player = new Player(dbPlayersNames.get(i), true);
+                    Player player = new Player(dbPlayersNames.get(i), true, dbPlayersIds.get(i));
 
                     tempPlayers.add(player.getName());
                     game.addPlayerToGame(player);
@@ -140,7 +143,7 @@ public class ConfigureGame extends AppCompatActivity {
         if (checkInputFieldHasValue()) {
             if (! tempPlayers.contains(getNameFromInputField())) {
 
-                Player player = new Player(getNameFromInputField(), false);
+                Player player = new Player(getNameFromInputField(), false, -1);
 
                 tempPlayers.add(player.getName());
                 game.addPlayerToGame(player);
@@ -243,6 +246,26 @@ public class ConfigureGame extends AppCompatActivity {
     public void handleOnClickBtnStartGame(View view) {
         for (Player player : game.getPlayers()) player.initArrays(game.getAmountOfRounds());
         startActivity(new Intent(this, Scoresheet.class));
+    }
+
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Back to Main?")
+                .setMessage("Your inputs will be lost!")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        game.resetGame();
+                        NavUtils.navigateUpTo(ConfigureGame.this,getParentActivityIntent());
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
 }
