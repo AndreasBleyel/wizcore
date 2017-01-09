@@ -105,7 +105,7 @@ public class DisplayPlayer extends AppCompatActivity implements View.OnClickList
                 }
             } else {
                 delPlayer.setEnabled(false);
-                if (mydb.insertContact(name.getText().toString(), /*Integer.parseInt(highscore.getText().toString())*/ 0)) {
+                if (mydb.insertContact(name.getText().toString() /*Integer.parseInt(highscore.getText().toString())*/ )) {
                     Toast.makeText(getApplicationContext(), "done",
                             Toast.LENGTH_SHORT).show();
                 } else {

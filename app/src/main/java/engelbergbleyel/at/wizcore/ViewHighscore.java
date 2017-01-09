@@ -33,14 +33,14 @@ public class ViewHighscore extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         buildTable();
     }
@@ -78,17 +78,22 @@ public class ViewHighscore extends AppCompatActivity {
                             break;
                     }
                     pos.setText(position.toString());
-                    pos.setTextSize(18);
+                    pos.setTextSize(20);
 
                     name.setText(nam);
-                    name.setTextSize(18);
+                    name.setTextSize(20);
 
                     score.setText(high);
-                    score.setTextSize(18);
+                    score.setTextSize(20);
 
                     tableRow.addView(pos);
                     tableRow.addView(name);
                     tableRow.addView(score);
+
+                    TableLayout.LayoutParams tableRowParams= new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT);
+                    tableRowParams.setMargins(0, 0, 0, 10);
+                    tableRow.setLayoutParams(tableRowParams);
+
                     tableLayout.addView(tableRow);
 
                     position++;

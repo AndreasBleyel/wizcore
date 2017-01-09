@@ -2,6 +2,8 @@ package engelbergbleyel.at.wizcore;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,10 +17,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class EditPlayers extends AppCompatActivity {
+public class EditPlayers extends AppCompatActivity{
 
     public final static String EXTRA_MESSAGE = "MESSAGE";
     private ListView obj;
@@ -41,22 +46,8 @@ public class EditPlayers extends AppCompatActivity {
             }
         });*/
 
-        mydb = new DBHelper(this);
-        ArrayList array_list = mydb.getAllContacts();
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, array_list);
 
-        final ArrayList<Integer> array_ids = mydb.getAllIds();
-
-        /*for (Object temp:array_list){
-           Log.i("a","arraylist: "+temp.toString());
-        }
-        for (Object temp:array_ids){
-           Log.i("a","arrayids: "+temp.toString());
-        }*/
-
-        obj = (ListView) findViewById(R.id.lv_players);
-        obj.setAdapter(arrayAdapter);
-        obj.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*obj.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 // TODO Auto-generated method stub
@@ -84,11 +75,76 @@ public class EditPlayers extends AppCompatActivity {
                 intent.putExtras(dataBundle);
                 startActivity(intent);
             }
+        });*/
+
+        Button button = (Button)findViewById(R.id.btn_addPlayerDB);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PlayerDetail.class);
+                intent.putExtra("id",-1);
+                startActivity(intent);
+            }
         });
+        buildTable();
+    }
+
+    public void buildTable() {
+
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.tbl_playerListEdit);
+        DBHelper mydb = new DBHelper(this);
+
+        Cursor rs = mydb.getAll();
+
+        if (rs != null) {
+            if (rs.moveToFirst()) {
+                do {
+                    final TableRow tableRow = new TableRow(this);
+                    TextView all = new TextView(this);
+                    TextView name = new TextView(this);
+                    TextView score = new TextView(this);
+
+                    String nam = rs.getString(rs.getColumnIndex(DBHelper.PLAYERS_COLUMN_NAME));
+                    String high = rs.getString(rs.getColumnIndex(DBHelper.PLAYERS_COLUMN_HIGHSCORE));
+                    String alltime = rs.getString(rs.getColumnIndex(DBHelper.PLAYERS_COLUMN_ALLTIMESCORE));
+
+                    name.setText(nam);
+                    name.setTextSize(20);
+
+                    all.setText(alltime);
+                    all.setTextSize(20);
+
+                    score.setText(high);
+                    score.setTextSize(20);
+
+                    tableRow.addView(name);
+                    tableRow.addView(all);
+                    tableRow.addView(score);
+                    tableRow.setId(rs.getInt(rs.getColumnIndex(DBHelper.PLAYERS_COLUMN_ID)));
+                    tableRow.isClickable();
+                    tableRow.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getApplicationContext(), PlayerDetail.class);
+                            intent.putExtra("id",tableRow.getId());
+                            startActivity(intent);
+                        }
+                    });
+
+                    TableLayout.LayoutParams tableRowParams= new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT);
+                    tableRowParams.setMargins(0, 0, 0, 10);
+                    tableRow.setLayoutParams(tableRowParams);
+
+                    tableLayout.addView(tableRow);
+
+                } while (rs.moveToNext());
+            }
+        }
     }
 
     @Override
     public void onBackPressed() {
         NavUtils.navigateUpTo(this,getParentActivityIntent());
     }
+
 }

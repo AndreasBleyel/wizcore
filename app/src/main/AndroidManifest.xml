@@ -47,7 +47,16 @@
             android:name=".DisplayPlayer"
             android:label="@string/title_activity_display_player"
             android:parentActivityName=".EditPlayers"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PlayerDetail"
+            android:label="@string/title_activity_player_detail"
+            android:parentActivityName=".EditPlayers"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="engelbergbleyel.at.wizcore.EditPlayers" />
+        </activity>
     </application>
 
 </manifest>

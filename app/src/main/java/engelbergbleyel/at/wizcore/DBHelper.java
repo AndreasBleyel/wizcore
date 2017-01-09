@@ -45,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact(String name, int highscore) {
+    public boolean insertContact(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(PLAYERS_COLUMN_NAME, name);
@@ -94,6 +94,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    public Cursor getAll() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME+ " order by "+PLAYERS_COLUMN_NAME, null);
+        return res;
+    }
+
     public Integer getAllTimeScore(Integer id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from "+PLAYERS_TABLE_NAME+ " where "+PLAYERS_COLUMN_ID+" = " +id, null);
@@ -108,7 +114,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor res;
 
         if(id == -1){
-            res = db.rawQuery("select "+PLAYERS_COLUMN_NAME+" , "+PLAYERS_COLUMN_HIGHSCORE+" from "+PLAYERS_TABLE_NAME+ " order by "+PLAYERS_COLUMN_HIGHSCORE+" asc", null);
+            res = db.rawQuery("select "+PLAYERS_COLUMN_NAME+" , "+PLAYERS_COLUMN_HIGHSCORE+" from "+PLAYERS_TABLE_NAME+ " order by "+PLAYERS_COLUMN_HIGHSCORE, null);
         }else{
             res = db.rawQuery("select "+PLAYERS_COLUMN_NAME+" , "+PLAYERS_COLUMN_HIGHSCORE+" from "+PLAYERS_TABLE_NAME+" where "+PLAYERS_COLUMN_ID+" = " + id, null);
         }
