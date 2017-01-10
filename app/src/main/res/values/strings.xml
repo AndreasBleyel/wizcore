@@ -51,5 +51,8 @@
     <string name="update">Update Player</string>
     <string name="explEdit">click on Player to edit</string>
     <string name="saveplayer">save Player</string>
+    <string name="tut">Scroll down the tutorial to see how the app works. You can disable this tutorial at the bottom</string>
+    <string name="got">got it</string>
+    <string name="dont">hide tutorial</string>
 
 </resources>

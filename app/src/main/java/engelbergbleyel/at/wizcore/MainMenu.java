@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainMenu extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_about) {
-            return true;
+        switch (id){
+            case R.id.action_about:
+                //startActivity(new Intent(this, EditPlayers.class));
+                break;
+            case R.id.action_tut:
+                startActivity(new Intent(this, StartTutorial.class));
+                break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);

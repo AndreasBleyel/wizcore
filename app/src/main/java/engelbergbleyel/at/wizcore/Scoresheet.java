@@ -97,7 +97,7 @@ public class Scoresheet extends AppCompatActivity {
     }
 
     public void handleOnClickButtonMain(View view){
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, MainMenu.class));
     }
 
     public void createTable() {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="engelbergbleyel.at.wizcore.MainActivity">
+    tools:context="engelbergbleyel.at.wizcore.MainMenu">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
