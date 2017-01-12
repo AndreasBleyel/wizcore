@@ -54,5 +54,9 @@
     <string name="tut">Scroll down the tutorial to see how the app works. You can disable this tutorial at the bottom</string>
     <string name="got">got it</string>
     <string name="dont">hide tutorial</string>
-
+    <string name="title_activity_about">About</string>
+    <string name="about">Welcome to WizCore. This app is about to track your score for the card game Wizard\u00A9. For detailed information
+    how the app works, open the tutorial from the main menu (right top corner). \n\n If you like it, please rate the app 5 stars and share your comments.
+    \n\nFor suggestions or just a few words with the developers, contact us via the mail button at the bottom.
+    \n\nHave fun</string>
 </resources>

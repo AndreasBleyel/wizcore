@@ -1,9 +1,12 @@
 package engelbergbleyel.at.wizcore;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -19,14 +22,14 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+     /*   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Spend the Devs Coffee", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 
     @Override
@@ -46,7 +49,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         //noinspection SimplifiableIfStatement
         switch (id){
             case R.id.action_about:
-                //startActivity(new Intent(this, EditPlayers.class));
+                startActivity(new Intent(this, About.class));
                 break;
             case R.id.action_tut:
                 startActivity(new Intent(this, StartTutorial.class));
@@ -83,5 +86,29 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 break;
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        new AlertDialog.Builder(this)
+                .setTitle("Exit")
+                .setMessage("Close the app?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        Intent startMain = new Intent(Intent.ACTION_MAIN);
+                        startMain.addCategory(Intent.CATEGORY_HOME);
+                        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(startMain);
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

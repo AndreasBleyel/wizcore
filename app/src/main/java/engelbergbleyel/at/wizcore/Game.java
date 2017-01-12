@@ -1,6 +1,7 @@
 package engelbergbleyel.at.wizcore;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -149,6 +150,12 @@ public class Game {
                 if(temp.isDbPlayer()){
                     DBHelper mydb = new DBHelper(context);
                     mydb.updateAllTimeScore(temp.getId(),temp.getScore());
+
+                    Cursor res = mydb.getHighscore(temp.getId());
+                    res.moveToFirst();
+                    if(temp.getScore() > res.getInt(res.getColumnIndex(DBHelper.PLAYERS_COLUMN_HIGHSCORE))){
+                        mydb.updateHighScore(temp.getId(),temp.getScore());
+                    }
                 }
             }
         }

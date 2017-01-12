@@ -81,6 +81,15 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean updateHighScore(Integer id, int score) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PLAYERS_COLUMN_HIGHSCORE, score);
+
+        db.update(PLAYERS_TABLE_NAME, contentValues, "id = ? ", new String[]{Integer.toString(id)});
+        return true;
+    }
+
     public Integer deleteContact(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(PLAYERS_TABLE_NAME,
@@ -114,7 +123,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor res;
 
         if(id == -1){
-            res = db.rawQuery("select "+PLAYERS_COLUMN_NAME+" , "+PLAYERS_COLUMN_HIGHSCORE+" from "+PLAYERS_TABLE_NAME+ " order by "+PLAYERS_COLUMN_HIGHSCORE, null);
+            res = db.rawQuery("select "+PLAYERS_COLUMN_NAME+" , "+PLAYERS_COLUMN_HIGHSCORE+" from "+PLAYERS_TABLE_NAME+ " order by "+PLAYERS_COLUMN_HIGHSCORE+ " desc", null);
         }else{
             res = db.rawQuery("select "+PLAYERS_COLUMN_NAME+" , "+PLAYERS_COLUMN_HIGHSCORE+" from "+PLAYERS_TABLE_NAME+" where "+PLAYERS_COLUMN_ID+" = " + id, null);
         }
