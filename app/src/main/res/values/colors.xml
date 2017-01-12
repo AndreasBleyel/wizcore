@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="lightgray">#d3d3d3</color>
+    <color name="green">#00cd00</color>
+    <color name="ghost">#f8f8ff</color>
+    <color name="whitesmo">#f5f5f5</color>
+    <color name="gold">#eec900</color>
+    <color name="silver">#cdc9c9</color>
+    <color name="bronze">#cd8500</color>
 </resources>

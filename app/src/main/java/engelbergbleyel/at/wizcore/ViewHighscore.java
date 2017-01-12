@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -53,40 +55,42 @@ public class ViewHighscore extends AppCompatActivity {
 
                     switch (position) {
                         case 1:
-                            pos.setTextColor(Color.rgb(255, 215, 0));
-                            name.setTextColor(Color.rgb(255, 215, 0));
-                            score.setTextColor(Color.rgb(255, 215, 0));
+                            pos.setTextColor(getResources().getColor(R.color.gold, null));
+                            name.setTextColor(getResources().getColor(R.color.gold, null));
+                            score.setTextColor(getResources().getColor(R.color.gold, null));
                             break;
                         case 2:
-                            pos.setTextColor(Color.rgb(192, 192, 192));
-                            name.setTextColor(Color.rgb(192, 192, 192));
-                            score.setTextColor(Color.rgb(192, 192, 192));
+                            pos.setTextColor(getResources().getColor(R.color.silver, null));
+                            name.setTextColor(getResources().getColor(R.color.silver, null));
+                            score.setTextColor(getResources().getColor(R.color.silver, null));
                             break;
                         case 3:
-                            pos.setTextColor(Color.rgb(205, 127, 50));
-                            name.setTextColor(Color.rgb(205, 127, 50));
-                            score.setTextColor(Color.rgb(205, 127, 50));
+                            pos.setTextColor(getResources().getColor(R.color.bronze, null));
+                            name.setTextColor(getResources().getColor(R.color.bronze, null));
+                            score.setTextColor(getResources().getColor(R.color.bronze, null));
                             break;
                         default:
                             break;
                     }
                     pos.setText(position.toString());
                     pos.setTextSize(20);
+                    //pos.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+                    //pos.setGravity(Gravity.LEFT);
 
                     name.setText(nam);
                     name.setTextSize(20);
+                    //name.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+                    //name.setGravity(Gravity.LEFT);
 
                     score.setText(high);
                     score.setTextSize(20);
+                    //score.setGravity(Gravity.LEFT);
+                    //score.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
 
-                    name.setPadding(10, 2, 2, 2);
                     if (counter % 2 != 0) {
-                        /*name.setTextColor(Color.BLACK);
-                        all.setTextColor(Color.BLACK);
-                        score.setTextColor(Color.BLACK);*/
-
-                        tableRow.setBackgroundColor(Color.LTGRAY);
-
+                        tableRow.setBackgroundColor(getResources().getColor(R.color.whitesmo, null));
+                    } else {
+                        tableRow.setBackgroundColor(getResources().getColor(R.color.ghost, null));
                     }
                     counter++;
 
@@ -94,7 +98,7 @@ public class ViewHighscore extends AppCompatActivity {
                     tableRow.addView(name);
                     tableRow.addView(score);
 
-                    TableLayout.LayoutParams tableRowParams= new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT);
+                    TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
                     tableRowParams.setMargins(0, 0, 0, 10);
                     tableRow.setLayoutParams(tableRowParams);
 

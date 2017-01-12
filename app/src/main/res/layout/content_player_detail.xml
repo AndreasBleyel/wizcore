@@ -18,23 +18,26 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:text="@string/general_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView7"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:layout_marginRight="10dp" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editTxt_playerNameDBValue"
-            android:textSize="24sp" />
+            android:textSize="22sp"
+            android:hint="@string/configureGame_playerName"
+            android:maxLength="6"
+            android:maxLines="1" />
 
     </LinearLayout>
 
@@ -42,21 +45,21 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:text="@string/playerDetail_allTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView8"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:layout_marginRight="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_playerAllTimeDBValue"
-            android:textSize="24sp" />
+            android:textSize="22sp" />
 
     </LinearLayout>
 
@@ -71,14 +74,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView9"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:layout_marginRight="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_playerHighscoreDBValue"
-            android:textSize="24sp" />
+            android:textSize="22sp" />
 
 
     </LinearLayout>
@@ -95,7 +98,8 @@
             android:layout_weight="1"
             android:text="@string/button_update"
             android:onClick="onClick"
-            android:visibility="invisible" />
+            android:visibility="invisible" android:background="@drawable/button"
+            android:layout_marginRight="5dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -104,7 +108,7 @@
             android:layout_weight="1"
             android:text="@string/button_saveplayer"
             android:visibility="invisible"
-            android:onClick="onClick" />
+            android:onClick="onClick" android:background="@drawable/button"/>
 
         <Button
             android:text="@string/button_delPlayer"
@@ -113,7 +117,8 @@
             android:id="@+id/btn_delPlayerDB"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:visibility="invisible" />
+            android:visibility="invisible" android:background="@drawable/button"
+            android:layout_marginLeft="5dp" />
     </LinearLayout>
 
 </LinearLayout>

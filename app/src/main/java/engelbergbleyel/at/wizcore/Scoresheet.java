@@ -145,17 +145,17 @@ public class Scoresheet extends AppCompatActivity {
             roundNumber.setText( getResources().getString(R.string.scoreSheet_round)+": " + Integer.toString(game.getRound()-1) + "/" + game.getAmountOfRounds());
 
             play1name.setText(game.getPlayers().get(0).getName());
-            play1name.setTextColor(Color.rgb(255,215,0));
+            play1name.setTextColor(getResources().getColor(R.color.gold,null));
             play1point.setText(getResources().getString(R.string.scoreSheet_first) + ": " + game.getPlayers().get(0).getScore());
             play1bid.setVisibility(View.INVISIBLE);
 
             play2name.setText(game.getPlayers().get(1).getName());
-            play2name.setTextColor(Color.rgb(192,192,192));
+            play2name.setTextColor(getResources().getColor(R.color.silver,null));
             play2point.setText(getResources().getString(R.string.scoreSheet_second) + ": " + game.getPlayers().get(1).getScore());
             play2bid.setVisibility(View.INVISIBLE);
 
             play3name.setText(game.getPlayers().get(2).getName());
-            play3name.setTextColor(Color.rgb(205, 127, 50));
+            play3name.setTextColor(getResources().getColor(R.color.bronze,null));
             play3point.setText(getResources().getString(R.string.scoreSheet_third) + ": " + game.getPlayers().get(2).getScore());
             play3bid.setVisibility(View.INVISIBLE);
 
@@ -219,6 +219,7 @@ public class Scoresheet extends AppCompatActivity {
                     play5point.setVisibility(View.VISIBLE);
                     play5bid.setText(getResources().getString(R.string.general_bids) + ": " + game.getPlayers().get(4).getBidAt(game.getRound()));
                     play5bid.setVisibility(View.VISIBLE);
+
                     if (game.getPlayers().size() > 5) {
                         play6name.setText(game.getPlayers().get(5).getName());
                         play6name.setVisibility(View.VISIBLE);

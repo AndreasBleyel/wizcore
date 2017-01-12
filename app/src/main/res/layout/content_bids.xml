@@ -26,28 +26,33 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp" />
 
-    <TableLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/table_bids">
+        android:layout_height="wrap_content">
 
-        <!--<TableRow
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/table_bids">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <!--<TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />-->
-    </TableLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />-->
+        </TableLayout>
+    </ScrollView>
 
     <TextView
         android:layout_width="match_parent"
@@ -59,6 +64,7 @@
 
     <Button
         android:text="@string/general_done"
+        android:background="@drawable/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="false"

@@ -18,6 +18,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/wizlogo"
+            android:id="@+id/imageView4" />
+
         <TextView
             android:text="@string/main_activity_welcome"
             android:layout_width="match_parent"
@@ -42,21 +48,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btn_startGame"
-            android:onClick="onClick" />
+            android:onClick="onClick"
+            android:background="@drawable/button"
+            android:layout_marginBottom="10dp"
+        />
 
         <Button
             android:text="@string/button_editPlayers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btn_editPlayers"
-            android:onClick="onClick" />
+            android:onClick="onClick"
+            android:background="@drawable/button"
+            android:layout_marginBottom="10dp" />
 
         <Button
             android:text="@string/button_viewHighscores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btn_viewHscore"
-            android:onClick="onClick" />
+            android:onClick="onClick"
+            android:background="@drawable/button"
+            android:layout_marginBottom="10dp" />
 
     </LinearLayout>
 </RelativeLayout>

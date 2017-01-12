@@ -113,10 +113,10 @@ public class ConfigureGame extends AppCompatActivity {
                         setAddPlayerButtonToFull();
                         setInputFieldBack();
                         disableInputField();
-                        Toast.makeText(getApplicationContext(), "Maximum amount of Players reached", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.configureGame_maxReached), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Player already in game", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.configureGame_alreadyIn), Toast.LENGTH_SHORT).show();
                 }
 
 

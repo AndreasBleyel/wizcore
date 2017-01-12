@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="about_about">Willkommen bei WizCore. Diese App hilft dir den Spielstand für das Kartenspiel Wizard\u00A9 zu speichern. Für detailierte Informationen wie
+        diese App funktioniert, einfach das Menü rechts oben im Hauptmenü öffnen und Tutorial wählen.
+        \n\nWenn dir diese App gefällt, bitte bewerte sie mit 5 Sternen im App Store um sie bekannter zu machen.
+        \n\nFür Anregungen, Wünsche, Beschwerden oder einfach ein paar nette Worte mit den Entwicklern, benutze den Mail Button rechts unten.
+        \n\nViel Spaß beim spielen</string>
+    <string name="about_spend">Spendiere den Entwicklern einen Kaffee</string>
+    <string name="about_text">sende Mail...</string>
+
+    <string name="action_about">Über</string>
+
+    <string name="alert_abortGame">Spiel abbrechen</string>
+    <string name="alert_backMain">Zurück zum Hauptmenü?</string>
+    <string name="alert_backScoresheet">Zurück zum Spiel?</string>
+    <string name="alert_closeApp">App beenden?</string>
+    <string name="alert_exit">Exit</string>
+    <string name="alert_goBackMain">und zurück zum Hauptmenü?</string>
+    <string name="alert_inputsLost">Deine Eingaben werden nicht gespeichert!</string>
+    <string name="alert_playerDeleted">Spieler gelöscht</string>
+    <string name="alert_scoresLost">Punkte werden nicht gespeichert!</string>
+
+    <string name="app_name">WizCore</string>
+
+    <string name="bids_activity_calcScore">Punkte berechnen</string>
+    <string name="bids_enterAll">Alle Stiche eingeben</string>
+    <string name="bids_less0">Du kannst nicht weniger als 0 Stiche machen</string>
+    <string name="bids_maxAmount">Max Anzahl von Stichen bereits erreicht</string>
+    <string name="bids_sumofBids">Summe getippte Stiche</string>
+    <string name="bids_sumofTricks">Summe Stiche</string>
+    <string name="bids_youCantTricks">Du kannst nicht mehr als alle Stiche machen</string>
+
+    <string name="button_addPlayer">Neuen Spieler hinzufügen</string>
+    <string name="button_delPlayer">Spieler löschen</string>
+    <string name="button_editPlayers">Spieler bearbeiten</string>
+    <string name="button_got">verstanden</string>
+    <string name="button_saveplayer">Spieler speichern</string>
+    <string name="button_startGame">Starte Spiel</string>
+    <string name="button_update">Update Spieler</string>
+    <string name="button_viewHighscores">Highscores</string>
+    <string name="button_backMain">Hauptmenü</string>
+
+    <string name="configureGame_actualPlayers">Spieler im Spiel\nKlick um zu entfernen</string>
+    <string name="configureGame_addPlayer">Spieler hinzufügen</string>
+    <string name="configureGame_alreadyIn">Spieler bereits im Spiel</string>
+    <string name="configureGame_bidsNotRounds">Tipps müssen von der Rundenanzahl abweichen</string>
+    <string name="configureGame_enterName">Bitte Namen eingeben</string>
+    <string name="configureGame_full">Ich bin voll"</string>
+    <string name="configureGame_gameSetUp">Spiel einrichten</string>
+    <string name="configureGame_invitation">Nur mit Einladung</string>
+    <string name="configureGame_maxReached">Max Anzahl von Spielern erreicht</string>
+    <string name="configureGame_playerName">Spieler Name (max 6 Zeichen)</string>
+    <string name="configureGame_poolPlayers">gespeicherte Spieler\nKlick zum hinzufügen</string>
+
+    <string name="editPlayers_alltimescore">Allzeit</string>
+    <string name="editPlayers_explEdit">Klick auf Spieler zum bearbeiten</string>
+
+    <string name="general_bids">Tipps</string>
+    <string name="general_done">fertig</string>
+    <string name="general_name">Name</string>
+    <string name="general_please">bitte</string>
+    <string name="general_points">Punkte</string>
+    <string name="general_top">Top</string>
+    <string name="general_tricks">Tipps</string>
+
+    <string name="highscore_pos">Pos</string>
+    <string name="highscore_score">Punkte</string>
+
+    <string name="main_activity_welcome">Willkommen bei WizCore</string>
+    <string name="main_activity_welcome_submsg">bewahre die Magie</string>
+
+    <string name="playerDetail_allTime">Allzeit Score</string>
+    <string name="playerDetail_playerSaved">Spieler gespeichert</string>
+    <string name="playerDetail_playerUpdated">Spieler upgedated</string>
+
+    <string name="scoreSheet_diffPlayer">neuer Spielers</string>
+    <string name="scoreSheet_first">Erster</string>
+    <string name="scoreSheet_gameOver">Game Over</string>
+    <string name="scoreSheet_newGame">Neues Spiel</string>
+    <string name="scoreSheet_restart">Neustarten</string>
+    <string name="scoreSheet_round">Round</string>
+    <string name="scoreSheet_second">Zweiter</string>
+    <string name="scoreSheet_third">Dritter</string>
+
+    <string name="title_activity_about">Über</string>
+    <string name="title_activity_bids">Tipps und Stiche</string>
+    <string name="title_activity_configure_game">Spiel Setup</string>
+    <string name="title_activity_edit_players">Gespeicherte Spielers</string>
+    <string name="title_activity_player_detail">Spieler Details</string>
+    <string name="title_activity_scoresheet">Punktestand</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="title_activity_view_highscore">Highscore</string>
+
+    <string name="tutorial_dont">nicht mehr anzeigen</string>
+    <string name="tutorial_explain">Einfach nach unten scrollen um zu sehen, wie die App funktioniert. Am Ende kannst du dieses Tutorial deaktivieren. Wenn du es
+    nochtmal ansehen möchtest, einfach im Hauptmenü rechts oben das Menü öffnen.</string>
+</resources>

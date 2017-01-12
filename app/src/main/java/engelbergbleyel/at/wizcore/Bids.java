@@ -8,6 +8,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -68,7 +69,7 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
 
             TextView textViewName = new TextView(this);
             textViewName.setText(game.getPlayers().get(i).getName());
-            textView.setTextSize(18);
+            textViewName.setTextSize(18);
 
             /*LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             llp.setMargins(0, 0, 50, 0); // llp.setMargins(left, top, right, bottom);
@@ -81,9 +82,13 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
             btnMinus.setTypeface(Typeface.DEFAULT_BOLD);
             btnMinus.setId(id);
             btnMinus.setOnClickListener(this);
+            btnMinus.setBackground(getResources().getDrawable(R.drawable.button,null));
+
             tableRow.addView(btnMinus);
 
             textViewBid = new TextView(this);
+            textViewBid.setGravity(Gravity.CENTER);
+            textViewBid.setTextSize(18);
 
             if (bidOrScore)
                 textViewBid.setText(String.valueOf(game.getPlayers().get(i).getBidAt(game.getRound())));
@@ -99,9 +104,15 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
             btnPlus.setTypeface(Typeface.DEFAULT_BOLD);
             btnPlus.setId(id + 2);
             btnPlus.setOnClickListener(this);
+            btnPlus.setBackground(getResources().getDrawable(R.drawable.button,null));
             tableRow.addView(btnPlus);
 
             id += 3;
+
+            TableLayout.LayoutParams tableRowParams= new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT);
+            tableRowParams.setMargins(0,0,0,5);
+            tableRow.setLayoutParams(tableRowParams);
+            tableLayout.setStretchAllColumns(true);
             tableLayout.addView(tableRow);
         }
 
@@ -131,6 +142,7 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
 
         TextView textViewNewBid = null;
 
+        //v.setBackground(getResources().getDrawable(R.drawable.button_onclick,null));
         switch (v.getId()) {
 
             //player 1
@@ -203,7 +215,7 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
             TextView textViewNewSum = (TextView) findViewById(18);
             textViewNewSum.setText(getResources().getString(R.string.bids_sumofTricks)+": " + game.amountOfTricksForRound(game.getRound()) + "/" + game.getRound());
             if (game.amountOfTricksForRound(game.getRound()) == game.getRound())
-                textViewNewSum.setTextColor(Color.GREEN);
+                textViewNewSum.setTextColor(getResources().getColor(R.color.green,null));
             else
                 textViewNewSum.setTextColor(Color.RED);
         }

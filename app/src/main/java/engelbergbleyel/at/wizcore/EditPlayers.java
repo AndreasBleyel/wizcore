@@ -75,14 +75,11 @@ public class EditPlayers extends AppCompatActivity {
                     score.setText(high);
                     score.setTextSize(20);
 
-                    name.setPadding(10, 2, 2, 2);
                     if (counter % 2 != 0) {
-                        /*name.setTextColor(Color.BLACK);
-                        all.setTextColor(Color.BLACK);
-                        score.setTextColor(Color.BLACK);*/
-
-                        tableRow.setBackgroundColor(Color.LTGRAY);
-
+                        tableRow.setBackgroundColor(getResources().getColor(R.color.whitesmo,null));
+                    }
+                    else{
+                        tableRow.setBackgroundColor(getResources().getColor(R.color.ghost,null));
                     }
                     counter++;
 
@@ -100,10 +97,10 @@ public class EditPlayers extends AppCompatActivity {
                         }
                     });
 
-                    /*TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
+                    TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
                     tableRowParams.setMargins(0, 0, 0, 10);
 
-                    tableRow.setLayoutParams(tableRowParams);*/
+                    tableRow.setLayoutParams(tableRowParams);
 
                     tableLayout.addView(tableRow);
 

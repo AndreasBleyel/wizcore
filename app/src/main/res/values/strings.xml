@@ -10,7 +10,7 @@
 
     <string name="action_about">About</string>
 
-    <string name="alert_abortGame">Abort Game?</string>
+    <string name="alert_abortGame">Abort Game</string>
     <string name="alert_backMain">Back to main?</string>
     <string name="alert_backScoresheet">Back to scoresheet?</string>
     <string name="alert_closeApp">Close app?</string>
@@ -37,9 +37,10 @@
     <string name="button_saveplayer">Save player</string>
     <string name="button_startGame">Start game</string>
     <string name="button_update">Update player</string>
-    <string name="button_viewHighscores">View highscores</string>
+    <string name="button_viewHighscores">Highscores</string>
+    <string name="button_backMain">Main menu</string>
 
-    <string name="configureGame_actualPlayers">Players in game\nclick to remove</string>
+    <string name="configureGame_actualPlayers">players in game\nclick to remove</string>
     <string name="configureGame_addPlayer">Add Player</string>
     <string name="configureGame_alreadyIn">Player already in game</string>
     <string name="configureGame_bidsNotRounds">Bids sum must differ from round</string>
@@ -48,8 +49,9 @@
     <string name="configureGame_gameSetUp">set up the game</string>
     <string name="configureGame_invitation">Invitation only</string>
     <string name="configureGame_maxReached">Maximum amount of Players reached</string>
-    <string name="configureGame_playerName">Player name</string>
+    <string name="configureGame_playerName">Player name (max 6 chars)</string>
     <string name="configureGame_poolPlayers">saved players\nclick to add</string>
+
 
     <string name="editPlayers_alltimescore">All-Time</string>
     <string name="editPlayers_explEdit">click on player to edit</string>
@@ -59,14 +61,13 @@
     <string name="general_name">Name</string>
     <string name="general_please">please</string>
     <string name="general_points">Points</string>
-    <string name="general_save">Points</string>
     <string name="general_top">Top</string>
     <string name="general_tricks">Tricks</string>
 
     <string name="highscore_pos">Pos</string>
     <string name="highscore_score">Score</string>
 
-    <string name="main">main menu</string>
+
     <string name="main_activity_welcome">Welcome to WizCore</string>
     <string name="main_activity_welcome_submsg">keep the magic</string>
 
@@ -78,7 +79,7 @@
     <string name="scoreSheet_first">first</string>
     <string name="scoreSheet_gameOver">Game Over</string>
     <string name="scoreSheet_newGame">new game</string>
-    <string name="scoreSheet_restart">restart with</string>
+    <string name="scoreSheet_restart">restart</string>
     <string name="scoreSheet_round">Round</string>
     <string name="scoreSheet_second">second</string>
     <string name="scoreSheet_third">third</string>
@@ -93,5 +94,6 @@
     <string name="title_activity_view_highscore">Highscore</string>
 
     <string name="tutorial_dont">hide tutorial</string>
-    <string name="tutorial_explain">Scroll down the tutorial to see how the app works. You can disable this tutorial at the bottom</string>
+    <string name="tutorial_explain">Scroll down the tutorial to see how the app works. You can disable this tutorial at the bottom. If you want to see the tutorial again, just click
+    on the top right menu at the main menu.</string>
 </resources>

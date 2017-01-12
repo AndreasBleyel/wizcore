@@ -92,16 +92,16 @@ public class Game {
             case 2:
                 break;
             case 3:
-                amountOfRounds = 3;
+                amountOfRounds = 20;
                 break;
             case 4:
-                amountOfRounds = 3;
+                amountOfRounds = 15;
                 break;
             case 5:
-                amountOfRounds = 3;
+                amountOfRounds = 12;
                 break;
             case 6:
-                amountOfRounds = 3;
+                amountOfRounds = 10;
                 break;
         }
     }
