@@ -77,7 +77,7 @@ public class ConfigureGame extends AppCompatActivity {
 
                 displayTempPlayersInList();
 
-                Toast.makeText(getApplicationContext(), "Player deleted", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), getResources().getString(R.string.general_player)+" "+getResources().getString(R.string.general_deleted), Toast.LENGTH_SHORT).show();
 
                 setInputFieldBack();
                 enableAddPlayerButton();
@@ -154,14 +154,14 @@ public class ConfigureGame extends AppCompatActivity {
                     setAddPlayerButtonToFull();
                     setInputFieldBack();
                     disableInputField();
-                    Toast.makeText(this, "Maximum amount of Players reached", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.configureGame_maxReached), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getApplicationContext(), "Player already in game", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.configureGame_alreadyIn), Toast.LENGTH_SHORT).show();
 
             }
         } else {
-            Toast.makeText(this, "Please enter a Name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.configureGame_enterName), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -183,8 +183,8 @@ public class ConfigureGame extends AppCompatActivity {
         arrayAdapter.notifyDataSetChanged();
 
         dbPlayersIds = mydb.getAllIds();
-        for (Integer x : dbPlayersIds)
-            Log.i("a", "IDS: " + x + ", ");
+        //for (Integer x : dbPlayersIds)
+        //    Log.i("a", "IDS: " + x + ", ");
     }
 
     public String getNameFromInputField() {
@@ -196,25 +196,25 @@ public class ConfigureGame extends AppCompatActivity {
 
     public void setAddPlayerButtonToFull() {
         Button button = (Button) findViewById(R.id.btn_addNewPlayer);
-        button.setText("I'm full");
+        button.setText(getResources().getString(R.string.configureGame_full));
         button.setEnabled(false);
     }
 
     public void enableAddPlayerButton() {
         Button button = (Button) findViewById(R.id.btn_addNewPlayer);
-        button.setText("Add Player");
+        button.setText(getResources().getString(R.string.configureGame_addPlayer));
         button.setEnabled(true);
     }
 
     public void enableInputField() {
         EditText editText = (EditText) findViewById(R.id.txt_enterName);
-        editText.setHint("Player Name");
+        editText.setHint(getResources().getString(R.string.configureGame_playerName));
         editText.setEnabled(true);
     }
 
     public void disableInputField() {
         EditText editText = (EditText) findViewById(R.id.txt_enterName);
-        editText.setHint("Invitation only");
+        editText.setHint(getResources().getString(R.string.configureGame_invitation));
         editText.setEnabled(false);
     }
 
@@ -234,7 +234,7 @@ public class ConfigureGame extends AppCompatActivity {
 
         EditText editText = (EditText) findViewById(R.id.txt_enterName);
         editText.setText("");
-        editText.setHint("Enter Player Name");
+        editText.setHint(getResources().getString(R.string.configureGame_playerName));
     }
 
 
@@ -245,8 +245,8 @@ public class ConfigureGame extends AppCompatActivity {
 
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Back to Main?")
-                .setMessage("Your inputs will be lost!")
+                .setTitle(getResources().getString(R.string.alert_backMain))
+                .setMessage(getResources().getString(R.string.alert_inputsLost))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete

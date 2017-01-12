@@ -10,6 +10,10 @@ import android.view.View;
 
 public class About extends AppCompatActivity {
 
+    private final String EMAIL = "andy-b23@gmx.at";
+    private final String SUBJECT = "WizCore ";
+    private final String TEXT = "Hi Paula and Andreas,";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +25,7 @@ public class About extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Spend the Devs Coffee", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, getResources().getString(R.string.about_spend), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
                 /* Create the Intent */
@@ -29,15 +33,15 @@ public class About extends AppCompatActivity {
 
                 /* Fill it with Data */
                 emailIntent.setType("plain/text");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"andy-b23@gmx.at"});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "WizCore");
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Hi Paula und Andreas,");
+                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, EMAIL);
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, SUBJECT);
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, TEXT);
 
                 /* Send it off to the Activity-Chooser */
-                startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.about_text)));
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

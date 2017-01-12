@@ -19,5 +19,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView13"
         android:textSize="18sp"
-        android:text="@string/about" />
+        android:text="@string/about_about" />
 </LinearLayout>

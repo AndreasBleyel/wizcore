@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView11"
         android:textSize="18sp"
-        android:text="@string/tut"
+        android:text="@string/tutorial_explain"
         android:layout_marginBottom="10dp" />
 
     <ScrollView
@@ -74,14 +74,14 @@
                 android:layout_height="match_parent">
 
                 <CheckBox
-                    android:text="@string/dont"
+                    android:text="@string/tutorial_dont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/chk_tut"
                     android:layout_weight="1" />
 
                 <Button
-                    android:text="@string/got"
+                    android:text="@string/button_got"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/btn_toMain"

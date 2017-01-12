@@ -27,7 +27,7 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/txt_enterName"
-            android:hint="@string/configureGame_hintName"
+            android:hint="@string/configureGame_playerName"
             android:textAlignment="center"
             android:lines="1"
             android:maxLines="1"

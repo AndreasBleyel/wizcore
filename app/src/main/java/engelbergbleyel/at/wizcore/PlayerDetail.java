@@ -64,7 +64,7 @@ public class PlayerDetail extends AppCompatActivity implements View.OnClickListe
             }
         } else {
             savePlayer.setVisibility(View.VISIBLE);
-            name.setHint(getResources().getString(R.string.configureGame_hintName));
+            name.setHint(getResources().getString(R.string.configureGame_playerName));
             highscore.setText("0");
             alltimescore.setText("0");
         }
@@ -83,23 +83,23 @@ public class PlayerDetail extends AppCompatActivity implements View.OnClickListe
         switch (button.getId()) {
             case R.id.btn_updatePlayerDB:
                 if (name.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "Please enter a Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.configureGame_enterName), Toast.LENGTH_SHORT).show();
                 } else {
                     mydb.updateContact(id, name.getText().toString());
-                    Toast.makeText(this, "Player updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.playerDetail_playerUpdated), Toast.LENGTH_SHORT).show();
                     NavUtils.navigateUpTo(this,getParentActivityIntent());
                 }
                 break;
 
             case R.id.btn_delPlayerDB:
                 new AlertDialog.Builder(this)
-                        .setTitle("Delete Player?")
-                        .setMessage("Scores will be lost!")
+                        .setTitle(getResources().getString(R.string.button_delPlayer)+"?")
+                        .setMessage(getResources().getString(R.string.alert_scoresLost))
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // continue with delete
                                 mydb.deleteContact(id);
-                                Toast.makeText(getApplicationContext(), "Player deleted", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), getResources().getString(R.string.alert_playerDeleted), Toast.LENGTH_SHORT).show();
                                 NavUtils.navigateUpTo(PlayerDetail.this,getParentActivityIntent());
                             }
                         })
@@ -115,10 +115,10 @@ public class PlayerDetail extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_savePlayerDB:
                 if (name.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "Please enter a Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.configureGame_enterName), Toast.LENGTH_SHORT).show();
                 } else {
                     mydb.insertContact(name.getText().toString());
-                    Toast.makeText(this, "Player saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.playerDetail_playerSaved), Toast.LENGTH_SHORT).show();
                     NavUtils.navigateUpTo(this,getParentActivityIntent());
                 }
             default:

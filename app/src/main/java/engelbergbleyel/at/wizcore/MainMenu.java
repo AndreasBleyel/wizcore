@@ -92,8 +92,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     public void onBackPressed() {
 
         new AlertDialog.Builder(this)
-                .setTitle("Exit")
-                .setMessage("Close the app?")
+                .setTitle(getResources().getString(R.string.alert_exit))
+                .setMessage(getResources().getString(R.string.alert_closeApp))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete

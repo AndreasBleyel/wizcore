@@ -110,9 +110,9 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
 
 
         if (bidOrScore) {
-            possibleBids.setText(getResources().getString(R.string.bids_activity_sumof) + " " + getResources().getString(R.string.general_bids) + ": " + game.amountOfBidsForRound(game.getRound()) + "/" + game.getRound());
+            possibleBids.setText(getResources().getString(R.string.bids_sumofBids) + ": " + game.amountOfBidsForRound(game.getRound()) + "/" + game.getRound());
         } else {
-            possibleBids.setText(getResources().getString(R.string.bids_activity_sumof) + " " + getResources().getString(R.string.general_tricks) + ": " + game.amountOfTricksForRound(game.getRound()) + "/" + game.getRound());
+            possibleBids.setText(getResources().getString(R.string.bids_sumofTricks)+ ": " + game.amountOfTricksForRound(game.getRound()) + "/" + game.getRound());
 
             Button button = (Button) findViewById(R.id.btn_bidsDone);
             button.setText(getResources().getString(R.string.bids_activity_calcScore));
@@ -193,7 +193,7 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
         if (bidOrScore) {
             //bids
             TextView textViewNewSum = (TextView) findViewById(18);
-            textViewNewSum.setText("Sum of Bids: " + game.amountOfBidsForRound(game.getRound()) + "/" + game.getRound());
+            textViewNewSum.setText(getResources().getString(R.string.bids_sumofBids)+": " + game.amountOfBidsForRound(game.getRound()) + "/" + game.getRound());
             if (game.amountOfBidsForRound(game.getRound()) == game.getRound())
                 textViewNewSum.setTextColor(Color.RED);
             else
@@ -201,7 +201,7 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
         } else {
             //tricks
             TextView textViewNewSum = (TextView) findViewById(18);
-            textViewNewSum.setText("Sum of Tricks: " + game.amountOfTricksForRound(game.getRound()) + "/" + game.getRound());
+            textViewNewSum.setText(getResources().getString(R.string.bids_sumofTricks)+": " + game.amountOfTricksForRound(game.getRound()) + "/" + game.getRound());
             if (game.amountOfTricksForRound(game.getRound()) == game.getRound())
                 textViewNewSum.setTextColor(Color.GREEN);
             else
@@ -241,15 +241,15 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
             //erhöhen
             if (bidOrScore) {
                 if (!game.getPlayers().get(playerNumber).raiseBidByOne(game.getRound()))
-                    Toast.makeText(getApplicationContext(), "You can't make more than all tricks", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.bids_youCantTricks), Toast.LENGTH_SHORT).show();
                 else {
                     textViewBid.setText(String.valueOf(game.getPlayers().get(playerNumber).getBidAt(game.getRound())));
                 }
             } else {
                 if (game.amountOfTricksForRound(game.getRound()) == game.getRound())
-                    Toast.makeText(getApplicationContext(), "Max amount of tricks already reached", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.bids_maxAmount), Toast.LENGTH_SHORT).show();
                 else if (!game.getPlayers().get(playerNumber).raiseTrickByOne(game.getRound()))
-                    Toast.makeText(getApplicationContext(), "You can't make more than all tricks", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.bids_youCantTricks), Toast.LENGTH_SHORT).show();
                 else {
                     textViewBid.setText(String.valueOf(game.getPlayers().get(playerNumber).getTrickAt(game.getRound())));
                 }
@@ -258,7 +258,7 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
         } else {
             //verringern
             if (!game.getPlayers().get(playerNumber).lowerBidOrScoreByOne(game.getRound(), bidOrScore))
-                Toast.makeText(getApplicationContext(), "You can't make less than 0 tricks", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.bids_less0), Toast.LENGTH_SHORT).show();
             else {
                 if (bidOrScore)
                     textViewBid.setText(String.valueOf(game.getPlayers().get(playerNumber).getBidAt(game.getRound())));
@@ -271,7 +271,7 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
     public void handleOnClickDone(View view) {
         if (game.isSumBidsMustDifferFromRound()) {
             if (game.getRound() == game.amountOfBidsForRound(game.getRound())) {
-                Toast.makeText(getApplicationContext(), "Sum of Bids must differ from Round", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.configureGame_bidsNotRounds), Toast.LENGTH_SHORT).show();
             } else
                 this.finish();
         } else
@@ -285,14 +285,14 @@ public class Bids extends AppCompatActivity implements View.OnClickListener {
             game.raiseRoundByOne();
             this.finish();
         } else {
-            Toast.makeText(getApplicationContext(), "Enter all tricks", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.bids_enterAll), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Save?")
-                .setMessage("Input not saved. Really back?")
+                .setTitle(getResources().getString(R.string.alert_backScoresheet))
+                .setMessage(getResources().getString(R.string.alert_inputsLost))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete

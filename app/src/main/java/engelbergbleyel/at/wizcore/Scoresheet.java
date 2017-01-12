@@ -54,8 +54,8 @@ public class Scoresheet extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Abort Game")
-                .setMessage("and go back to MainScreen?")
+                .setTitle( getResources().getString(R.string.alert_abortGame))
+                .setMessage( getResources().getString(R.string.alert_goBackMain))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
@@ -142,7 +142,7 @@ public class Scoresheet extends AppCompatActivity {
             game.endGame(false,this);
 
             bids.setText(getResources().getString(R.string.scoreSheet_gameOver));
-            roundNumber.setText("Round: " + Integer.toString(game.getRound()-1) + "/" + game.getAmountOfRounds());
+            roundNumber.setText( getResources().getString(R.string.scoreSheet_round)+": " + Integer.toString(game.getRound()-1) + "/" + game.getAmountOfRounds());
 
             play1name.setText(game.getPlayers().get(0).getName());
             play1name.setTextColor(Color.rgb(255,215,0));
@@ -187,7 +187,7 @@ public class Scoresheet extends AppCompatActivity {
 
         } else {
 
-            roundNumber.setText("Round: " + game.getRound() + "/" + game.getAmountOfRounds());
+            roundNumber.setText(getResources().getString(R.string.scoreSheet_round)+": " + game.getRound() + "/" + game.getAmountOfRounds());
             Log.i("a", "Round Scoresheet: " + game.getRound());
             bids.setText(getResources().getString(R.string.general_bids) + ": " + game.amountOfBidsForRound(game.getRound()) + "/" + game.getRound());
 

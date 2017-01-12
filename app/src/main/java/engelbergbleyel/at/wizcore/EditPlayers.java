@@ -1,7 +1,9 @@
 package engelbergbleyel.at.wizcore;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +14,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class EditPlayers extends AppCompatActivity{
+public class EditPlayers extends AppCompatActivity {
 
 
     @Override
@@ -32,12 +34,12 @@ public class EditPlayers extends AppCompatActivity{
         });*/
 
 
-        Button button = (Button)findViewById(R.id.btn_addPlayerDB);
+        Button button = (Button) findViewById(R.id.btn_addPlayerDB);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PlayerDetail.class);
-                intent.putExtra("id",-1);
+                intent.putExtra("id", -1);
                 startActivity(intent);
             }
         });
@@ -50,6 +52,7 @@ public class EditPlayers extends AppCompatActivity{
         DBHelper mydb = new DBHelper(this);
 
         Cursor rs = mydb.getAll();
+        int counter = 0;
 
         if (rs != null) {
             if (rs.moveToFirst()) {
@@ -72,6 +75,17 @@ public class EditPlayers extends AppCompatActivity{
                     score.setText(high);
                     score.setTextSize(20);
 
+                    name.setPadding(10, 2, 2, 2);
+                    if (counter % 2 != 0) {
+                        /*name.setTextColor(Color.BLACK);
+                        all.setTextColor(Color.BLACK);
+                        score.setTextColor(Color.BLACK);*/
+
+                        tableRow.setBackgroundColor(Color.LTGRAY);
+
+                    }
+                    counter++;
+
                     tableRow.addView(name);
                     tableRow.addView(all);
                     tableRow.addView(score);
@@ -81,14 +95,15 @@ public class EditPlayers extends AppCompatActivity{
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(getApplicationContext(), PlayerDetail.class);
-                            intent.putExtra("id",tableRow.getId());
+                            intent.putExtra("id", tableRow.getId());
                             startActivity(intent);
                         }
                     });
 
-                    TableLayout.LayoutParams tableRowParams= new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT);
+                    /*TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
                     tableRowParams.setMargins(0, 0, 0, 10);
-                    tableRow.setLayoutParams(tableRowParams);
+
+                    tableRow.setLayoutParams(tableRowParams);*/
 
                     tableLayout.addView(tableRow);
 
@@ -99,7 +114,7 @@ public class EditPlayers extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        NavUtils.navigateUpTo(this,getParentActivityIntent());
+        NavUtils.navigateUpTo(this, getParentActivityIntent());
     }
 
 }

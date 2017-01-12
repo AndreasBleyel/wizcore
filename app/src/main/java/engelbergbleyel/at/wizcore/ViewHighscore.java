@@ -38,6 +38,7 @@ public class ViewHighscore extends AppCompatActivity {
         DBHelper mydb = new DBHelper(this);
 
         Cursor rs = mydb.getHighscore(-1);
+        int counter = 0;
 
         if (rs != null) {
             if (rs.moveToFirst()) {
@@ -53,12 +54,18 @@ public class ViewHighscore extends AppCompatActivity {
                     switch (position) {
                         case 1:
                             pos.setTextColor(Color.rgb(255, 215, 0));
+                            name.setTextColor(Color.rgb(255, 215, 0));
+                            score.setTextColor(Color.rgb(255, 215, 0));
                             break;
                         case 2:
                             pos.setTextColor(Color.rgb(192, 192, 192));
+                            name.setTextColor(Color.rgb(192, 192, 192));
+                            score.setTextColor(Color.rgb(192, 192, 192));
                             break;
                         case 3:
                             pos.setTextColor(Color.rgb(205, 127, 50));
+                            name.setTextColor(Color.rgb(205, 127, 50));
+                            score.setTextColor(Color.rgb(205, 127, 50));
                             break;
                         default:
                             break;
@@ -71,6 +78,17 @@ public class ViewHighscore extends AppCompatActivity {
 
                     score.setText(high);
                     score.setTextSize(20);
+
+                    name.setPadding(10, 2, 2, 2);
+                    if (counter % 2 != 0) {
+                        /*name.setTextColor(Color.BLACK);
+                        all.setTextColor(Color.BLACK);
+                        score.setTextColor(Color.BLACK);*/
+
+                        tableRow.setBackgroundColor(Color.LTGRAY);
+
+                    }
+                    counter++;
 
                     tableRow.addView(pos);
                     tableRow.addView(name);

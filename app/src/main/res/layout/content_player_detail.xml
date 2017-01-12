@@ -21,7 +21,7 @@
         android:layout_marginBottom="20dp">
 
         <TextView
-            android:text="@string/name"
+            android:text="@string/general_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView7"
@@ -45,7 +45,7 @@
         android:layout_marginBottom="20dp">
 
         <TextView
-            android:text="@string/alltimescore"
+            android:text="@string/playerDetail_allTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView8"
@@ -67,7 +67,7 @@
         android:layout_marginBottom="20dp">
 
         <TextView
-            android:text="@string/highestScore"
+            android:text="@string/general_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView9"
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_updatePlayerDB"
             android:layout_weight="1"
-            android:text="@string/update"
+            android:text="@string/button_update"
             android:onClick="onClick"
             android:visibility="invisible" />
 
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_savePlayerDB"
             android:layout_weight="1"
-            android:text="@string/saveplayer"
+            android:text="@string/button_saveplayer"
             android:visibility="invisible"
             android:onClick="onClick" />
 
