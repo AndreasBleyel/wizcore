@@ -20,4 +20,23 @@
         android:id="@+id/textView13"
         android:textSize="18sp"
         android:text="@string/about_about" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/star"
+        android:id="@+id/btn_rate"
+        android:background="@drawable/button"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:text="@string/about_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:paddingTop="5dp"
+        android:gravity="center_horizontal" />
+
 </LinearLayout>

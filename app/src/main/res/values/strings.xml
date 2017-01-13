@@ -2,11 +2,11 @@
 <resources>
     <string name="about_about">Welcome to WizCore. This app is about to track your score for the card game Wizard\u00A9. For detailed information
     how the app works, open the tutorial from the main menu (right top corner).
-    \n\nIf you like it, please rate the app 5 stars and share your comments.
     \n\nFor suggestions or just a few words with the developers, contact us via the mail button at the bottom.
     \n\nHave fun</string>
     <string name="about_spend">Spend the devs coffee</string>
     <string name="about_text">send mail...</string>
+    <string name="about_rate">If you like this app, please rate 5 stars and help to spread it.</string>
 
     <string name="action_about">About</string>
 
@@ -39,6 +39,7 @@
     <string name="button_update">Update player</string>
     <string name="button_viewHighscores">Highscores</string>
     <string name="button_backMain">Main menu</string>
+    <string name="button_rate">please rate me</string>
 
     <string name="configureGame_actualPlayers">players in game\nclick to remove</string>
     <string name="configureGame_addPlayer">Add Player</string>
@@ -92,6 +93,7 @@
     <string name="title_activity_scoresheet">Scoresheet</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_view_highscore">Highscore</string>
+    <string name="title_activity_start_tutorial">Tutorial</string>
 
     <string name="tutorial_dont">hide tutorial</string>
     <string name="tutorial_explain">Scroll down the tutorial to see how the app works. You can disable this tutorial at the bottom. If you want to see the tutorial again, just click

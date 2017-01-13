@@ -2,12 +2,11 @@
 <resources>
     <string name="about_about">Willkommen bei WizCore. Diese App hilft dir den Spielstand für das Kartenspiel Wizard\u00A9 zu speichern. Für detailierte Informationen wie
         diese App funktioniert, einfach das Menü rechts oben im Hauptmenü öffnen und Tutorial wählen.
-        \n\nWenn dir diese App gefällt, bitte bewerte sie mit 5 Sternen im App Store um sie bekannter zu machen.
         \n\nFür Anregungen, Wünsche, Beschwerden oder einfach ein paar nette Worte mit den Entwicklern, benutze den Mail Button rechts unten.
         \n\nViel Spaß beim spielen</string>
     <string name="about_spend">Spendiere den Entwicklern einen Kaffee</string>
     <string name="about_text">sende Mail...</string>
-
+    <string name="about_rate">Wenn dir diese App gefällt, bitte bewerte sie mit 5 Sternen im App Store um sie bekannter zu machen.</string>
     <string name="action_about">Über</string>
 
     <string name="alert_abortGame">Spiel abbrechen</string>
@@ -39,6 +38,7 @@
     <string name="button_update">Update Spieler</string>
     <string name="button_viewHighscores">Highscores</string>
     <string name="button_backMain">Hauptmenü</string>
+    <string name="button_rate">Bitte bewerte mich</string>
 
     <string name="configureGame_actualPlayers">Spieler im Spiel\nKlick um zu entfernen</string>
     <string name="configureGame_addPlayer">Spieler hinzufügen</string>

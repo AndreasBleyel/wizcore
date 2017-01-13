@@ -12,7 +12,7 @@
             android:name=".MainMenu"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Bids"
             android:label="@string/title_activity_bids"
@@ -53,12 +53,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="engelbergbleyel.at.wizcore.EditPlayers" />
         </activity>
-        <activity android:name=".StartTutorial">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".StartTutorial"
+            android:label="@string/title_activity_start_tutorial"
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".About"
@@ -68,6 +69,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="engelbergbleyel.at.wizcore.MainMenu" />
+        </activity>
+        <activity android:name=".Launch">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

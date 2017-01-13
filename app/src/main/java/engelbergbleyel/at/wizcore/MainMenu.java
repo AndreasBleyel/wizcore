@@ -1,7 +1,9 @@
 package engelbergbleyel.at.wizcore;
 
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +33,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                         .setAction("Action", null).show();
             }
         });*/
+
+
     }
 
     @Override
@@ -80,6 +85,22 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
             case R.id.btn_viewHscore:
                 intent = new Intent(this, ViewHighscore.class);
                 startActivity(intent);
+                break;
+
+            case R.id.btn_rateMain:
+                Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                // To count with Play market backstack, After pressing back button,
+                // to taken back to our application, we need to add following flags to intent.
+                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try {
+                    startActivity(goToMarket);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName())));
+                }
                 break;
 
             default:
