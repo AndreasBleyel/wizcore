@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="about_about">Welcome to WizCore. This app is about to track your score for the card game Wizard\u00A9. For detailed information
-    how the app works, open the tutorial from the main menu (right top corner).
+    how the app works, open the tutorial from the main menu (top right corner).
     \n\nFor suggestions or just a few words with the developers, contact us via the mail button at the bottom.
     \n\nHave fun</string>
-    <string name="about_spend">Spend the devs coffee</string>
+    <string name="about_spend">We love coffee</string>
     <string name="about_text">send mail...</string>
-    <string name="about_rate">If you like this app, please rate 5 stars.</string>
+    <string name="about_rate">If you like this app, please rate it 5 stars.</string>
 
     <string name="action_about">About</string>
 
@@ -44,14 +44,15 @@
     <string name="configureGame_actualPlayers">players in game\nclick to remove</string>
     <string name="configureGame_addPlayer">Add Player</string>
     <string name="configureGame_alreadyIn">Player already in game</string>
-    <string name="configureGame_bidsNotRounds">Bids sum must differ from round</string>
+    <string name="configureGame_bidsNotRounds">Bid-Sum must differ from round</string>
     <string name="configureGame_enterName">Please enter a name</string>
     <string name="configureGame_full">I\'m full"</string>
     <string name="configureGame_gameSetUp">set up the game</string>
     <string name="configureGame_invitation">Invitation only</string>
-    <string name="configureGame_maxReached">Maximum amount of Players reached</string>
+    <string name="configureGame_maxReached">Maximum amount of players reached</string>
     <string name="configureGame_playerName">Player name (max 6 chars)</string>
     <string name="configureGame_poolPlayers">saved players\nclick to add</string>
+
 
 
     <string name="editPlayers_alltimescore">All-Time</string>
@@ -61,13 +62,12 @@
     <string name="general_done">done</string>
     <string name="general_name">Name</string>
     <string name="general_please">please</string>
-    <string name="general_points">Points</string>
+    <string name="general_points">Score</string>
     <string name="general_top">Top</string>
     <string name="general_tricks">Tricks</string>
 
     <string name="highscore_pos">Pos</string>
     <string name="highscore_score">Score</string>
-
 
     <string name="main_activity_welcome">Welcome to WizCore</string>
     <string name="main_activity_welcome_submsg">keep the magic</string>
@@ -77,13 +77,13 @@
     <string name="playerDetail_playerUpdated">Player updated</string>
 
     <string name="scoreSheet_diffPlayer">new players</string>
-    <string name="scoreSheet_first">first</string>
+    <string name="scoreSheet_first">1st</string>
     <string name="scoreSheet_gameOver">Game Over</string>
     <string name="scoreSheet_newGame">new game</string>
     <string name="scoreSheet_restart">restart</string>
     <string name="scoreSheet_round">Round</string>
-    <string name="scoreSheet_second">second</string>
-    <string name="scoreSheet_third">third</string>
+    <string name="scoreSheet_second">2nd</string>
+    <string name="scoreSheet_third">3rd</string>
 
     <string name="title_activity_about">About</string>
     <string name="title_activity_bids">Bids or tricks</string>
@@ -96,6 +96,6 @@
     <string name="title_activity_start_tutorial">Tutorial</string>
 
     <string name="tutorial_dont">hide tutorial</string>
-    <string name="tutorial_explain">Scroll down the tutorial to see how the app works. You can disable this tutorial at the bottom. If you want to see the tutorial again, just click
-    on the top right menu at the main menu.</string>
+    <string name="tutorial_explain">Scroll down the tutorial to see how the app works. You can disable this tutorial at the bottom.
+        You can access the tutorial from the top-right corner menu at the main menu.</string>
 </resources>

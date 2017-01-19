@@ -85,6 +85,12 @@
                 android:fadingEdge="none" />
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="10dp" />
+
         <Switch
             android:text="@string/configureGame_bidsNotRounds"
             android:layout_width="match_parent"

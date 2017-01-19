@@ -54,13 +54,13 @@ public class Scoresheet extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle( getResources().getString(R.string.alert_abortGame))
-                .setMessage( getResources().getString(R.string.alert_goBackMain))
+                .setTitle(getResources().getString(R.string.alert_abortGame))
+                .setMessage(getResources().getString(R.string.alert_goBackMain))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
-                        game.endGame(true,getApplicationContext());
-                        NavUtils.navigateUpTo(Scoresheet.this,getParentActivityIntent());
+                        game.endGame(true, getApplicationContext());
+                        NavUtils.navigateUpTo(Scoresheet.this, getParentActivityIntent());
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -96,7 +96,7 @@ public class Scoresheet extends AppCompatActivity {
         startActivity(new Intent(this, ConfigureGame.class));
     }
 
-    public void handleOnClickButtonMain(View view){
+    public void handleOnClickButtonMain(View view) {
         startActivity(new Intent(this, MainMenu.class));
     }
 
@@ -134,48 +134,70 @@ public class Scoresheet extends AppCompatActivity {
             Button tricksButton = (Button) findViewById(R.id.btn_Tricks);
             Button newGame = (Button) findViewById(R.id.btn_newGame);
             newGame.setVisibility(View.VISIBLE);
-            Button main = (Button)findViewById(R.id.btn_backMain);
+            Button main = (Button) findViewById(R.id.btn_backMain);
             main.setVisibility(View.VISIBLE);
-            bidsButton.setEnabled(false);
-            tricksButton.setEnabled(false);
+            bidsButton.setVisibility(View.INVISIBLE);
+            tricksButton.setVisibility(View.INVISIBLE);
 
-            game.endGame(false,this);
+            game.endGame(false, this);
 
             bids.setText(getResources().getString(R.string.scoreSheet_gameOver));
-            roundNumber.setText( getResources().getString(R.string.scoreSheet_round)+": " + Integer.toString(game.getRound()-1) + "/" + game.getAmountOfRounds());
+            roundNumber.setText(getResources().getString(R.string.scoreSheet_round) + ": " + Integer.toString(game.getRound() - 1) + "/" + game.getAmountOfRounds());
+
+            if (game.getPlayers().get(0).getScore() == game.getPlayers().get(1).getScore() && game.getPlayers().get(0).getScore() == game.getPlayers().get(2).getScore()) {
+                play2name.setTextColor(getResources().getColor(R.color.gold, null));
+                play3name.setTextColor(getResources().getColor(R.color.gold, null));
+                play2point.setText(getResources().getString(R.string.scoreSheet_first) + "\n" + game.getPlayers().get(1).getScore());
+                play3point.setText(getResources().getString(R.string.scoreSheet_first) + "\n" + game.getPlayers().get(2).getScore());
+
+            } else if (game.getPlayers().get(0).getScore() == game.getPlayers().get(1).getScore()) {
+                play2name.setTextColor(getResources().getColor(R.color.gold, null));
+                play3name.setTextColor(getResources().getColor(R.color.bronze, null));
+                play2point.setText(getResources().getString(R.string.scoreSheet_first) + "\n" + game.getPlayers().get(1).getScore());
+                play3point.setText(getResources().getString(R.string.scoreSheet_third) + "\n" + game.getPlayers().get(2).getScore());
+
+            } else if (game.getPlayers().get(1).getScore() == game.getPlayers().get(2).getScore()) {
+                play2name.setTextColor(getResources().getColor(R.color.silver, null));
+                play3name.setTextColor(getResources().getColor(R.color.silver, null));
+                play2point.setText(getResources().getString(R.string.scoreSheet_second) + "\n" + game.getPlayers().get(1).getScore());
+                play3point.setText(getResources().getString(R.string.scoreSheet_second) + "\n" + game.getPlayers().get(2).getScore());
+
+            }else{
+                play2name.setTextColor(getResources().getColor(R.color.silver,null));
+                play3name.setTextColor(getResources().getColor(R.color.bronze,null));
+                play2point.setText(getResources().getString(R.string.scoreSheet_second) + "\n" + game.getPlayers().get(1).getScore());
+                play3point.setText(getResources().getString(R.string.scoreSheet_third) + "\n" + game.getPlayers().get(2).getScore());
+
+            }
 
             play1name.setText(game.getPlayers().get(0).getName());
-            play1name.setTextColor(getResources().getColor(R.color.gold,null));
-            play1point.setText(getResources().getString(R.string.scoreSheet_first) + ": " + game.getPlayers().get(0).getScore());
+            play1name.setTextColor(getResources().getColor(R.color.gold, null));
+            play1point.setText(getResources().getString(R.string.scoreSheet_first) + "\n" + game.getPlayers().get(0).getScore());
             play1bid.setVisibility(View.INVISIBLE);
 
             play2name.setText(game.getPlayers().get(1).getName());
-            play2name.setTextColor(getResources().getColor(R.color.silver,null));
-            play2point.setText(getResources().getString(R.string.scoreSheet_second) + ": " + game.getPlayers().get(1).getScore());
             play2bid.setVisibility(View.INVISIBLE);
 
             play3name.setText(game.getPlayers().get(2).getName());
-            play3name.setTextColor(getResources().getColor(R.color.bronze,null));
-            play3point.setText(getResources().getString(R.string.scoreSheet_third) + ": " + game.getPlayers().get(2).getScore());
             play3bid.setVisibility(View.INVISIBLE);
 
             if (game.getPlayers().size() > 3) {
                 play4name.setText(game.getPlayers().get(3).getName());
                 play4name.setVisibility(View.VISIBLE);
-                play4point.setText(getResources().getString(R.string.general_points) + ": " + game.getPlayers().get(3).getScore());
+                play4point.setText(getResources().getString(R.string.general_points) + "\n" + game.getPlayers().get(3).getScore());
                 play4point.setVisibility(View.VISIBLE);
                 play4bid.setVisibility(View.INVISIBLE);
 
                 if (game.getPlayers().size() > 4) {
                     play5name.setText(game.getPlayers().get(4).getName());
                     play5name.setVisibility(View.VISIBLE);
-                    play5point.setText(getResources().getString(R.string.general_points) + ": " + game.getPlayers().get(4).getScore());
+                    play5point.setText(getResources().getString(R.string.general_points) + "\n" + game.getPlayers().get(4).getScore());
                     play5point.setVisibility(View.VISIBLE);
                     play5bid.setVisibility(View.INVISIBLE);
                     if (game.getPlayers().size() > 5) {
                         play6name.setText(game.getPlayers().get(5).getName());
                         play6name.setVisibility(View.VISIBLE);
-                        play6point.setText(getResources().getString(R.string.general_points) + ": " + game.getPlayers().get(5).getScore());
+                        play6point.setText(getResources().getString(R.string.general_points) + "\n" + game.getPlayers().get(5).getScore());
                         play6point.setVisibility(View.VISIBLE);
                         play6bid.setVisibility(View.INVISIBLE);
                     }
@@ -187,7 +209,7 @@ public class Scoresheet extends AppCompatActivity {
 
         } else {
 
-            roundNumber.setText(getResources().getString(R.string.scoreSheet_round)+": " + game.getRound() + "/" + game.getAmountOfRounds());
+            roundNumber.setText(getResources().getString(R.string.scoreSheet_round) + ": " + game.getRound() + "/" + game.getAmountOfRounds());
             Log.i("a", "Round Scoresheet: " + game.getRound());
             bids.setText(getResources().getString(R.string.general_bids) + ": " + game.amountOfBidsForRound(game.getRound()) + "/" + game.getRound());
 

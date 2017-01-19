@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="about_about">Willkommen bei WizCore. Diese App hilft dir den Spielstand für das Kartenspiel Wizard\u00A9 zu speichern. Für detailierte Informationen wie
-        diese App funktioniert, einfach das Menü rechts oben im Hauptmenü öffnen und Tutorial wählen.
+    <string name="about_about">Willkommen bei WizCore. Diese App hilft dir den Spielstand für das Kartenspiel Wizard\u00A9 von Amigo zu speichern.
+        Für detaillierte Informationen wie diese App funktioniert, einfach das Menü rechts oben im Hauptmenü öffnen und das Tutorial starten.
         \n\nFür Anregungen, Wünsche, Beschwerden oder einfach ein paar nette Worte mit den Entwicklern, benutze den Mail Button rechts unten.
         \n\nViel Spaß beim spielen</string>
-    <string name="about_spend">Spendiere den Entwicklern einen Kaffee</string>
+    <string name="about_spend">Wir lieben Kaffee</string>
     <string name="about_text">sende Mail...</string>
     <string name="about_rate">Wenn dir diese App gefällt, bitte bewerte sie mit 5 Sternen im App Store.</string>
     <string name="action_about">Über</string>
@@ -69,23 +69,23 @@
     <string name="main_activity_welcome">Willkommen bei WizCore</string>
     <string name="main_activity_welcome_submsg">bewahre die Magie</string>
 
-    <string name="playerDetail_allTime">Allzeit Score</string>
+    <string name="playerDetail_allTime">Allzeit Punkte</string>
     <string name="playerDetail_playerSaved">Spieler gespeichert</string>
-    <string name="playerDetail_playerUpdated">Spieler upgedated</string>
+    <string name="playerDetail_playerUpdated">Spieler aktualisiert</string>
 
-    <string name="scoreSheet_diffPlayer">neuer Spielers</string>
-    <string name="scoreSheet_first">Erster</string>
+    <string name="scoreSheet_diffPlayer">neuer Spieler</string>
+    <string name="scoreSheet_first">1st</string>
     <string name="scoreSheet_gameOver">Game Over</string>
     <string name="scoreSheet_newGame">Neues Spiel</string>
-    <string name="scoreSheet_restart">Neustarten</string>
-    <string name="scoreSheet_round">Round</string>
-    <string name="scoreSheet_second">Zweiter</string>
-    <string name="scoreSheet_third">Dritter</string>
+    <string name="scoreSheet_restart">Neustart</string>
+    <string name="scoreSheet_round">Runde</string>
+    <string name="scoreSheet_second">2nd</string>
+    <string name="scoreSheet_third">3rd</string>
 
     <string name="title_activity_about">Über</string>
     <string name="title_activity_bids">Tipps und Stiche</string>
     <string name="title_activity_configure_game">Spiel Setup</string>
-    <string name="title_activity_edit_players">Gespeicherte Spielers</string>
+    <string name="title_activity_edit_players">Gespeicherte Spieler</string>
     <string name="title_activity_player_detail">Spieler Details</string>
     <string name="title_activity_scoresheet">Punktestand</string>
     <string name="title_activity_settings">Einstellungen</string>
@@ -93,5 +93,5 @@
 
     <string name="tutorial_dont">nicht mehr anzeigen</string>
     <string name="tutorial_explain">Einfach nach unten scrollen um zu sehen, wie die App funktioniert. Am Ende kannst du dieses Tutorial deaktivieren. Wenn du es
-    nochtmal ansehen möchtest, einfach im Hauptmenü rechts oben das Menü öffnen.</string>
+    nochmal ansehen möchtest, einfach im Hauptmenü rechts oben das Menü öffnen.</string>
 </resources>
