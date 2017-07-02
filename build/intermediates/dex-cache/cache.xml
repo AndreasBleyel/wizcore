@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e156d384c0d66608f3f509a4c0e694fb4fd3aafd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/bc0965d5cd4564dbc107437dc222e10015cd44b6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ff60e17e70c274ef6a74f10a5ef95f97a0cb2faa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/11ac6a97eb026ac7e31ef5e97934218e917981be/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1073d467a8e35c8bb406fb820816640dc50f9fea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_f73affb67f7d658ff22c45a4d00037bb23e24ca7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bd4dcf6837b0e8ce5f86ee2eb914dcd00e6e53d7">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_74f5cd01bc466b94b2ce40ba861e44d90173ed23/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/e9b23d552fb3b8b6d263e28bbd884b8d2d21d209/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_86e9e99536250991e0439c5048a9c3de921a07cc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/11ac6a97eb026ac7e31ef5e97934218e917981be/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_b6ac5156643574bbaf5454b3d58de9e451bde950/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/44474a853a96b76164a321e61a41c15c8f1fccdd/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_be7386558af51a3fc983e4d4ce7dd7d155c85a56/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/c47531be1ff9e0b17d97c041ca9bf0d1b82f0893/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_fe788227aa2f252c6ee125f166301916a6c2e32c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/847db2d9545d6809ce893d299f56a9340bc8acaf/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d48ef52f6aa23f90e0026cbb32fec14b07dcc276/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/44474a853a96b76164a321e61a41c15c8f1fccdd/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ea6787a457a84d143b34a8bf4a7a5b819eab2b89/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/847db2d9545d6809ce893d299f56a9340bc8acaf/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_09d6cfff96ee2b7bd7d2fd6d09e965e676ab834b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/08d43527399ea823b348ecb98c39848076bc8d5a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c20c713e9523fdcb3d4e592af445715d9eb6c96b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/2d6babe88cc0aef436b06b14aca9d0f62c7258e8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5739614e0db612b801faebc74e6bdb4b31552284/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/f534c7a415dbd170c44a94f2fb747d2795b57d78/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7e0468430ed3d087e345705b00e4df6a31408ad1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/9cf86f255bfb4420c031de46037d3615cd616418/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d80f0150409bd1a1ccd069d3d431bdd416790e02/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/2d6babe88cc0aef436b06b14aca9d0f62c7258e8/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_51b34a012c45bd877e88e54a0c893264c1e5fdc7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/c47531be1ff9e0b17d97c041ca9bf0d1b82f0893/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5f4a8c316f38d348a2db524f308e88ef31fa7d3a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/andi/.android/build-cache/5c86b6831081c6995fa0433c3ebe178490e5092b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/andi/Desktop/wizscore/wizcore/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9a2d8f3f5173bac3a8e3b887e79ccff32a407209/classes.dex" />
+    </item>
+
+</items>
